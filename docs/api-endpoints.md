@@ -1,17 +1,22 @@
 HTML API
 
 Root
-  GET / - loads React web app
+  - GET / - loads React web app
 
 JSON API
-Users
-  POST /api/users
 
 Artists
-  POST /api/artists
-  PATCH /api/artists
+  - GET /api/artists/:id
+  - GET /api/artists/new
+  - POST /api/artists/:id
+  - PATCH /api/artists/:id
+
+Songs
+  - POST /api/artists/songs/:id
+  - PATCH /api/artists/songs/:id  
+  - DELETE /api/artists/songs/:id  
 
 Session
-  POST /api/session
-  DELETE /api/session
-  GET /api/session
+  - POST /api/session
+  - DELETE /api/session
+  - GET /api/session

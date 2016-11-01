@@ -1,24 +1,18 @@
-create_table "artists", force: :cascade do |t|
-  t.string "name",        null: false
-  t.string "email",        null: false
-  t.string "password_digest", null: false
-  t.string "session_token",   null: false
-end
+Artist Data Table
 
-//How do I store images in the database?
-
-
-create_table "users", force: :cascade do |t|
-  t.string "name",        null: false
-  t.string "email",        null: false
-  t.string "password_digest", null: false
-  t.string "session_token",   null: false
-end
+column_name | data_type | details
+ --- | --- | --- |
+  name | t.string |  null: false
+  email | t.string | null: false
+  password_digest | t.string | null: false
+  session_token |  t.string |  null: false
+  bio |  t.text | null: false
+  image_url |  t.string |
 
 
-create_table "songs", force: :cascade do |t|
-  t.string "title",        null: false
-  t.string "artist_id",    null: false, indexed: true
-end
+Songs Data Table
 
-//How do I store the song itself in the database?
+column_name | data_type | details
+ --- | --- | --- |
+  title |  t.string  | null: false
+  artist_id | t.string | null: false, indexed: true, foreign_key (references artists)
