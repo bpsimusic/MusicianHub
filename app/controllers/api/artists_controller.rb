@@ -10,7 +10,6 @@ class Api::ArtistsController < ApplicationController
       render "api/artists/show"
     else
       render json: @artist.errors.full_messages, status: 422
-      # render :json ["Username already exists"], status: 422
     end
   end
 

@@ -24,7 +24,6 @@ export const SessionReducer = (state = _default, action)=>{
     case Actions.CLEAR_ERRORS:
       let d = merge({}, state);
       d.errors = [];
-      debugger;
       return d;
     default:
       return state;

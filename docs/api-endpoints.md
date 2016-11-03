@@ -12,9 +12,9 @@ Artists
   - PATCH /api/artists/:id
 
 Songs
-  - POST /api/artists/songs/:id
-  - PATCH /api/artists/songs/:id  
-  - DELETE /api/artists/songs/:id  
+  - POST /api/artists/:artist_id/songs/:id
+  - PATCH /api/artists/:artist_id/songs/:id  
+  - DELETE /api/artists/:artist_id/songs/:id  
 
 Session
   - POST /api/session

@@ -16,3 +16,4 @@ column_name | data_type | details
  --- | --- | --- |
   title |  t.string  | null: false
   artist_id | t.string | null: false, indexed: true, foreign_key (references artists)
+  song_url |  t.string  | null: false

@@ -26,7 +26,7 @@
 
 Implementation Timeline
 
-Phase 1: Finish Authentication, including login/signup for artists
+Phase 1: Finish Authenticataion, including login/signup for artists
           as well as guest/demo login. (2 days).
 
 Phase 2: Finish Artist Page, including the following features: Uploading/Deleting
