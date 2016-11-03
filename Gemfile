@@ -33,6 +33,10 @@ gem 'bcrypt', '~> 3.1.7'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'guard', require: false
+ gem 'guard-livereload', require: false
+ gem 'rack-livereload'
+ gem 'rb-fsevent', require: false
 end
 
 group :development do

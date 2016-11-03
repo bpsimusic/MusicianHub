@@ -4,6 +4,7 @@ import {Router, hashHistory, IndexRoute, Route} from 'react-router';
 import App from './app';
 import GreetingContainer from './greeting_container';
 import SessionFormContainer from './session_form_container';
+import ArtistInfoContainer from './artist_info_container';
 import * as Actions from "../actions/session_actions";
 
 const Root = ({store}) => {
@@ -21,6 +22,7 @@ const Root = ({store}) => {
       <Route path="/" component={App}>
         <Route path="login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
         <Route path="signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
+        <Route path="artists/:artistId" component={ArtistInfoContainer} />
       </Route>
     </Router>
   </Provider>);
