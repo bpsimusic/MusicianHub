@@ -3,6 +3,7 @@ export const LOGOUT = "LOGOUT";
 export const SIGNUP = "SIGNUP";
 export const RECEIVE_CURRENT_USER = "RECEIVECURRENTUSER";
 export const RECEIVE_ERRORS = "RECEIVEERRORS";
+export const CLEAR_ERRORS = "CLEARERRORS";
 
 export const login = (artist) => ({
   type: LOGIN,
@@ -22,4 +23,8 @@ export const receiveCurrentUser = (currentUser) => ({
 export const receiveErrors = (errors) => ({
   type: RECEIVE_ERRORS,
   errors
+})
+
+export const logoutUser = () => ({
+  type: LOGOUT
 })

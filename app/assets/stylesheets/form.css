@@ -1,0 +1,32 @@
+.form-container {
+  padding: 20px;
+  border: solid #cecbb3 1px;
+  width: 270px;
+  height: 290px;
+  box-sizing: inherit;
+  position: relative;
+  top: 50px;
+  left: 36%;
+  font-size: 22px;
+}
+
+
+
+.form-container form{
+  position: absolute;
+  top: 80px;
+}
+
+.form-container input{
+  font-size: 18px;
+}
+
+label {
+  font-size: 20px;
+}
+
+.errors {
+  font-size: 12px;
+  color: red;
+  margin-bottom: 50px;
+}

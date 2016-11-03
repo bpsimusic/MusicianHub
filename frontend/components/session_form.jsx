@@ -19,7 +19,7 @@ class SessionForm extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     const artist = this.state;
-  
+
     //question about this syntax.
     //You're processing the {artist: {username: "", password: ""}}
     this.props.processForm({artist});
@@ -41,7 +41,7 @@ class SessionForm extends React.Component {
 
   renderErrors() {
     return (
-      <ul>
+      <ul className="errors">
           {this.props.errors.map((error, i) => (
             <li key={i}>
               {error}
@@ -52,21 +52,32 @@ class SessionForm extends React.Component {
   }
   render (){
     return (
-      <div>
-        <h1>Please {this.props.formType}! or {this.navLink()} </h1>
-        {this.renderErrors()}
+      <div className="form-container">
+        <h1>{this.props.formType === "signup" ? "Sign Up" : "Login"}</h1>
         <form onSubmit={this.handleSubmit.bind(this)}>
+
           <label>Username
+            <br></br>
             <input type="text"
               value={this.state.username}
-              onChange={this.update("username")}/>
+              onChange={this.update("username")}
+              size="28"/>
           </label>
+          <br></br>
+          <br></br>
           <label>Password
+            <br></br>
             <input type="password"
               value={this.state.password}
-              onChange={this.update("password")}/>
+              onChange={this.update("password")}
+              size="28"/>
           </label>
-          <input type="submit" value="Submit" />
+          <br></br>
+          <br></br>
+          <input type="submit"
+                 value={this.props.formType === "signup" ? "Sign Up" : "Login"}
+                  />
+          {this.renderErrors()}
         </form>
 
       </div>

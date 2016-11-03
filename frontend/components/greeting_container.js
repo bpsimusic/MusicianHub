@@ -8,7 +8,9 @@ const mapStateToProps = ({session}) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  logout: ()=>dispatch(logout())
+  logout: ()=>dispatch(logout()),
+  demologin: ()=>dispatch({type: "LOGIN", artist: {artist: {username: 'guest', password: 123456}}})
+
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Greeting);

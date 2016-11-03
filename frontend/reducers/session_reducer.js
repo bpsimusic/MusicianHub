@@ -21,6 +21,11 @@ export const SessionReducer = (state = _default, action)=>{
       newState.currentUser = null;
       newState.errors = [];
       return merge({}, state, newState);
+    case Actions.CLEAR_ERRORS:
+      let d = merge({}, state);
+      d.errors = [];
+      debugger;
+      return d;
     default:
       return state;
   }

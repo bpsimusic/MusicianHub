@@ -4,12 +4,12 @@ class Api::ArtistsController < ApplicationController
 
   def create
     @artist = Artist.new(artist_params)
-    
+    # debugger
     if(@artist.save)
       login(@artist)
       render "api/artists/show"
     else
-      render :json => { :errors => @artist.errors.full_messages, status: 422 }
+      render json: @artist.errors.full_messages, status: 422
       # render :json ["Username already exists"], status: 422
     end
   end

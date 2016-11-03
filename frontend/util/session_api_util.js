@@ -10,7 +10,6 @@ export const signup = (artist, success, error) => {
 }
 
 export const login = (artist, success, error) => {
-
   $.ajax({url: "/api/session",
   type: "post",
   data: artist,
