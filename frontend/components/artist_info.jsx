@@ -1,4 +1,5 @@
 import React from 'react';
+import UploadButton from './upload_button';
 
 
 class ArtistInfo extends React.Component {
@@ -55,17 +56,27 @@ class ArtistInfo extends React.Component {
   }
 
   imageEdit(){
-
+    return (
+    <div>
+      <div>
+        Artist Image
+        <img src={this.props.currentUser.image_url}></img>
+      </div>
+      <UploadButton postImage={this.postImage.bind(this)} />
+    </div>);
   }
 
-  img(){
-
+  image(){
+    return (
+    <div>
+      Artist Image
+      <img src={this.props.currentUser.image_url}></img>
+    </div>);
   }
 
-  postImage(e){
-    e.preventDefault();
-    const imageUrl = this.state.image_url;
-    const artist = {artist: {imageUrl}, id: this.props.currentUser.id};
+  postImage(url){
+    const image_url = url;
+    const artist = {artist: {image_url}, id: this.props.currentUser.id};
     this.props.processUpdate(artist);
   }
 
@@ -78,15 +89,14 @@ class ArtistInfo extends React.Component {
       [field]: e.currentTarget.value
     });
   }
-  // <div className="image">
-  //   {this.state.edit ? this.imageEdit() : this.image()}
-  //   Artist Image
-  // </div>
 
   render(){
 
     return (
         <div className="artist-info group">
+          <div className="image">
+            {this.state.edit ? this.imageEdit() : this.image()}
+          </div>
 
           <div className="right-hand-container">
             <button className="edit"

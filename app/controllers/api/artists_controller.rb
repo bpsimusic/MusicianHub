@@ -13,7 +13,6 @@ class Api::ArtistsController < ApplicationController
   end
 
   def update
-    
     @artist = Artist.find(params[:id])
     @artist.update_attributes(artist_params)
     render "api/artists/show"
