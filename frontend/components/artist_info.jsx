@@ -3,9 +3,7 @@ import React from 'react';
 
 class ArtistInfo extends React.Component {
   constructor(props){
-
     super(props);
-    // console.log(this.props.artist);
     this.state = {edit: false,
                   bio: this.props.currentUser.bio,
                   images: []};
@@ -38,7 +36,7 @@ class ArtistInfo extends React.Component {
   bio(){
     return (
       <p className="text">
-        {this.props.artist.bio}
+        {this.props.currentUser.bio}
       </p>
     );
   }
@@ -100,9 +98,6 @@ class ArtistInfo extends React.Component {
               <br></br>
               <br></br>
               {this.state.edit ? this.bioEdit() : this.bio()}
-
-
-
             </div>
             <br></br>
             <br></br>

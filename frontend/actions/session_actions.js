@@ -1,6 +1,7 @@
 export const LOGIN = "LOGIN";
 export const LOGOUT = "LOGOUT";
 export const SIGNUP = "SIGNUP";
+export const UPDATE = "UPDATE";
 export const RECEIVE_CURRENT_USER = "RECEIVECURRENTUSER";
 export const RECEIVE_ERRORS = "RECEIVEERRORS";
 export const CLEAR_ERRORS = "CLEARERRORS";
@@ -27,4 +28,9 @@ export const receiveErrors = (errors) => ({
 
 export const logoutUser = () => ({
   type: LOGOUT
+})
+
+export const updateUser = (artist) => ({
+  type: UPDATE,
+  artist
 })
