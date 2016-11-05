@@ -1,3 +1,18 @@
 body {
   background: white;
+  font-family: $roboto;
+}
+
+button {
+  font-size: 14px;
+  padding: 7px 10px;
+  background: lightblue;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+button:hover{
+  background: darkblue;
 }

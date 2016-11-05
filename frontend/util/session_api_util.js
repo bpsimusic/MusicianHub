@@ -6,8 +6,9 @@ export const signup = (artist, success, error) => {
   dataType: 'json',
   success,
   error
-})
-}
+});
+};
+
 
 export const login = (artist, success, error) => {
   $.ajax({url: "/api/session",

@@ -4,7 +4,6 @@ class Api::ArtistsController < ApplicationController
 
   def create
     @artist = Artist.new(artist_params)
-    # debugger
     if(@artist.save)
       login(@artist)
       render "api/artists/show"
@@ -13,8 +12,15 @@ class Api::ArtistsController < ApplicationController
     end
   end
 
+  def update
+    
+    @artist = Artist.find(params[:id])
+    @artist.update_attributes(artist_params)
+    render "api/artists/show"
+  end
+
   private
   def artist_params
-    params.require(:artist).permit(:username, :password)
+    params.require(:artist).permit(:username, :password, :bio, :image_url)
   end
 end

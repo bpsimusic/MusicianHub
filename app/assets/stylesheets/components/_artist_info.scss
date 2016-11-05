@@ -1,0 +1,55 @@
+
+
+.artist-info {
+  width: 900px;
+  margin: 0 auto;
+  position: relative;
+  top: 50px;
+
+}
+
+
+.image {
+  padding: 20px;
+  border: solid #cecbb3 1px;
+  width: 270px;
+  height: 290px;
+  box-sizing: inherit;
+  font-size: 22px;
+  float: left;
+}
+
+.right-hand-container {
+  position: relative;
+  float: right;
+  right: 150px;
+}
+
+.edit {
+  float: right;
+  position: relative;
+  bottom: 50px;
+  height: 30px;
+  width: 150px;
+  font-size: 18px;
+}
+.bio {
+  padding: 20px;
+  border: solid #cecbb3 1px;
+  width: 270px;
+  height: 70px;
+  box-sizing: inherit;
+  font-size: 22px;
+}
+.songindex {
+  padding: 20px;
+  border: solid #cecbb3 1px;
+  width: 270px;
+  height: 70px;
+  box-sizing: inherit;
+  font-size: 22px;
+}
+
+.text {
+  font-size: 14px;
+}

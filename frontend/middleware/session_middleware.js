@@ -1,5 +1,5 @@
 import {LOGIN, LOGOUT, SIGNUP} from "../actions/session_actions";
-import {signup, login, logout} from "../util/session_api_util";
+import {signup, update, login, logout} from "../util/session_api_util";
 import {RECEIVE_ERRORS, RECEIVE_CURRENT_USER, receiveCurrentUser, receiveErrors, logoutUser} from "../actions/session_actions";
 
 //middleware gets a store object

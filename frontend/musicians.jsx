@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 import merge from 'lodash/merge';
+import {update} from './util/artist_api_util';
 
 document.addEventListener("DOMContentLoaded", ()=>{
   let store;
@@ -14,6 +15,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
   }
   window.store = store
   window.merge = merge
+  window.update = update
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={store}/>, root);
 });

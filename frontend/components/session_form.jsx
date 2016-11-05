@@ -41,9 +41,10 @@ class SessionForm extends React.Component {
 
   renderErrors() {
     return (
-      <ul className="errors">
+      <ul>
           {this.props.errors.map((error, i) => (
-            <li key={i}>
+            <li key={i}
+                className="errors">
               {error}
             </li>
           ))}
@@ -65,18 +66,20 @@ class SessionForm extends React.Component {
           </label>
           <br></br>
           <br></br>
-          <label>Password
-            <br></br>
-            <input type="password"
-              value={this.state.password}
-              onChange={this.update("password")}
-              size="28"/>
-          </label>
+          <label for="password">Password</label>
           <br></br>
+
+          <input id="password" type="password"
+            value={this.state.password}
+            onChange={this.update("password")}
+            size="28"/>
           <br></br>
-          <input type="submit"
-                 value={this.props.formType === "signup" ? "Sign Up" : "Login"}
-                  />
+
+          <br></br>
+          <button>
+              {this.props.formType === "signup" ? "Sign Up" : "Login"}
+          </button>
+          <br></br>
           {this.renderErrors()}
         </form>
 
