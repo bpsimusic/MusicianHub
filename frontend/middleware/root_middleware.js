@@ -5,7 +5,7 @@ import createLogger from 'redux-logger';
 //applymiddleware is a function, to combine all of your middleware.
 const logger = createLogger();
 const RootMiddleware = applyMiddleware(
-  SessionMiddleware,logger
+  SessionMiddleware, ArtistMiddleware, logger
 );
 
 export default RootMiddleware;

@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import SongIndex from './song_index';
-import {newSong} from '../actions/session_actions.js';
+import {newSong, deleteSong} from '../actions/session_actions.js';
 
 const mapStateToProps = ({session}) => {
   return {

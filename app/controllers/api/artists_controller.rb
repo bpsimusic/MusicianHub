@@ -12,6 +12,11 @@ class Api::ArtistsController < ApplicationController
     end
   end
 
+  def show
+    @artist = Artist.find(params[:id])
+    render "api/artists/show"
+  end
+
   def update
     @artist = Artist.find(params[:id])
     @artist.update_attributes(artist_params)

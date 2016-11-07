@@ -1,7 +1,6 @@
-export const updateArtist= (artist, success, error) => {
-  $.ajax({url: `/api/artists/${artist.id}`,
-  type: "patch",
-  data: artist,
+export const fetchArtist= (id, success, error) => {
+  $.ajax({url: `/api/artists/${id}`,
+  type: "get",
   dataType: 'json',
   success,
   error

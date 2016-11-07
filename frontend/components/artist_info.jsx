@@ -8,7 +8,8 @@ class ArtistInfo extends React.Component {
     super(props);
     this.state = {edit: false,
                   bio: this.props.currentUser.bio,
-                  images: []};
+                  images: [],
+                  editSongs: false};
     this.activateEdit = this.activateEdit.bind(this);
   }
 
@@ -47,6 +48,20 @@ class ArtistInfo extends React.Component {
     return (
         <button onClick={this.activateEdit}>Finish Editing</button>
     );
+  }
+  
+  cancelEditSongs(){
+    return (
+        <button onClick={this.editSongs.bind(this)}>Cancel</button>
+    );
+  }
+
+  editSongs(){
+    if(this.state.editSongs ===false){
+      this.setState({editSongs: true});
+    } else {
+      this.setState({editSongs: false});
+    }
   }
 
   handleSubmitBio(e){
@@ -112,8 +127,12 @@ class ArtistInfo extends React.Component {
             <br></br>
             <br></br>
             <div className="songindex">
-              Song Index
-              <SongIndex songProps={this.props} edit={this.state.edit}/>
+              Song Index&nbsp;
+              <button onClick={this.editSongs.bind(this)}>Edit Songs</button>
+              &nbsp;
+              {this.state.editSongs ? this.cancelEditSongs() : null}
+
+              <SongIndex songProps={this.props} edit={this.state.editSongs}/>
             </div>
             {this.props.children}
           </div>

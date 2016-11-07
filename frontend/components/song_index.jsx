@@ -25,11 +25,15 @@ class SongIndex extends React.Component {
 
 
   render(){
+    let that = this;
     return (
       <div className="songs-box">
         <ul>
             {this.props.songProps.currentUser.songs.map(function(el, idx){
-              return <SongIndexItem song={el} key={idx}/>;
+              return <SongIndexItem song={el}
+                key={idx}
+                edit={that.props.edit}
+                deleteSong={that.props.songProps.deleteSong}/>;
             })
           }
         </ul>
