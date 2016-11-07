@@ -19,6 +19,19 @@ export const update = (artist, success, error) => {
 });
 };
 
+export const newSong = (song, success, error) => {
+  
+  $.ajax({url: `/api/artists/${song.artist_id}/songs`,
+  type: "post",
+  data: song,
+  dataType: 'json',
+  success,
+  error
+});
+};
+
+
+
 
 export const login = (artist, success, error) => {
   $.ajax({url: "/api/session",

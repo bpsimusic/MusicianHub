@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import ArtistInfo from './artist_info';
+import SongForm from './song_form';
 import {updateUser, createNewSong} from '../actions/session_actions';
 //your current user is your current artist.
 const mapStateToProps = ({session, artists}) => {
@@ -13,4 +13,4 @@ const mapDispatchToProps = (dispatch) => ({
   newSong: (song)=>dispatch(createNewSong(song))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ArtistInfo);
+export default connect(mapStateToProps, mapDispatchToProps)(SongForm);

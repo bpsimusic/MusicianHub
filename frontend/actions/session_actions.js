@@ -2,8 +2,11 @@ export const LOGIN = "LOGIN";
 export const LOGOUT = "LOGOUT";
 export const SIGNUP = "SIGNUP";
 export const UPDATE = "UPDATE";
+export const NEW_SONG = "NEW_SONG";
 export const RECEIVE_CURRENT_USER = "RECEIVECURRENTUSER";
 export const RECEIVE_ERRORS = "RECEIVEERRORS";
+export const RECEIVE_SONG_ERRORS = "RECEIVESONGERRORS";
+export const RECEIVE_NEW_SONG = "RECEIVENEWSONG";
 export const CLEAR_ERRORS = "CLEARERRORS";
 
 export const login = (artist) => ({
@@ -26,6 +29,7 @@ export const receiveErrors = (errors) => ({
   errors
 })
 
+
 export const logoutUser = () => ({
   type: LOGOUT
 })
@@ -33,4 +37,18 @@ export const logoutUser = () => ({
 export const updateUser = (artist) => ({
   type: UPDATE,
   artist
+})
+
+export const receiveNewSong = (song) => ({
+  type: RECEIVE_NEW_SONG,
+  song
+})
+export const createNewSong = (song) => ({
+  type: NEW_SONG,
+  song
+})
+
+export const receiveSongErrors = (errors) => ({
+  type: RECEIVE_SONG_ERRORS,
+  errors
 })

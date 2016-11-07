@@ -1,13 +1,17 @@
 import {connect} from 'react-redux';
-import SongIndex from './song_index_container';
+import SongIndex from './song_index';
+import {newSong} from '../actions/session_actions.js';
 
-const mapStateToProps = ({session, artists}) => {
+const mapStateToProps = ({session}) => {
   return {
-  currentUser: session.currentUser};
+  currentUser: session.currentUser,
+  songs: session.currentUser.songs};
 };
 
+
+
 const mapDispatchToProps = (dispatch) => ({
-  processUpdate: (artist)=>dispatch(updateUser(artist))
+
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SongIndex);

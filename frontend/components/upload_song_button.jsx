@@ -1,6 +1,6 @@
 import React from 'react';
 
-class UploadButton extends React.Component {
+class UploadSongButton extends React.Component {
   constructor(props){
     super(props);
   }
@@ -9,9 +9,9 @@ class UploadButton extends React.Component {
     e.preventDefault();
     cloudinary.openUploadWidget(
       window.cloudinary_options,
-    function(error, images){
+    function(error, song){
       if(error === null){
-        this.props.postImage(images[0].url);
+        this.props.url(song[0].url);
       }
     }.bind(this));
   }
@@ -19,7 +19,7 @@ class UploadButton extends React.Component {
   render(){
     return (
         <button onClick={this.upload.bind(this)}>
-          Upload Image
+          Upload Song File
         </button>
       );
     }
@@ -28,4 +28,4 @@ class UploadButton extends React.Component {
 
 
 
-export default UploadButton;
+export default UploadSongButton;

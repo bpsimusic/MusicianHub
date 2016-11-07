@@ -1,5 +1,6 @@
 import React from 'react';
 import UploadButton from './upload_button';
+import SongIndex from './song_index';
 
 
 class ArtistInfo extends React.Component {
@@ -44,7 +45,7 @@ class ArtistInfo extends React.Component {
 
   cancel(){
     return (
-        <button onClick={this.activateEdit}>cancel</button>
+        <button onClick={this.activateEdit}>Finish Editing</button>
     );
   }
 
@@ -91,7 +92,6 @@ class ArtistInfo extends React.Component {
   }
 
   render(){
-
     return (
         <div className="artist-info group">
           <div className="image">
@@ -111,7 +111,11 @@ class ArtistInfo extends React.Component {
             </div>
             <br></br>
             <br></br>
-            <div className="songindex">Song Index</div>
+            <div className="songindex">
+              Song Index
+              <SongIndex songProps={this.props} edit={this.state.edit}/>
+            </div>
+            {this.props.children}
           </div>
         </div>
 

@@ -25,6 +25,14 @@ export const SessionReducer = (state = _default, action)=>{
       let d = merge({}, state);
       d.errors = [];
       return d;
+    case Actions.RECEIVE_NEW_SONG:
+    debugger
+      let e = merge({}, state);
+      e.currentUser.songs.push(action.song);
+      return e;
+    case Actions.RECEIVE_SONG_ERRORS:
+      newState.errors = action.errors;
+      return merge({}, state, newState);
     default:
       return state;
   }
