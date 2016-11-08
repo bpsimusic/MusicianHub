@@ -3,8 +3,9 @@ import ArtistInfo from './artist_info';
 import {updateUser, createNewSong, deleteSong} from '../actions/session_actions';
 //your current user is your current artist.
 const mapStateToProps = ({session, artist}) => {
+  let empty = session.currentUser || {songs: []};
   return {
-  currentUser: session.currentUser,
+  currentUser: empty,
   errors: session.errors,
   artist: artist};
 };
