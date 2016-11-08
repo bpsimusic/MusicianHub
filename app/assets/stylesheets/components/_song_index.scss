@@ -1,13 +1,25 @@
 .songs-box {
-  background: white;
+  width: 90%;
+  margin: auto;
+  margin-bottom: 20px;
+
 }
 
-.song-item {
+.songs-header {
+  width: 80%;
+  font-size: 30px;
   position: relative;
-  right: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  left: 20px;
 }
 
-.title {
-  font-size: 14px;
-  margin-bottom: 2px;
+.edit-songs-button {
+  position: relative;
+  bottom: 5px;
+}
+
+.edit-songs-cancel {
+  position: relative;
+  bottom: 5px;
 }

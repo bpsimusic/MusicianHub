@@ -2,59 +2,102 @@
 
 .artist-info {
   width: 900px;
+  height: 2000px;
   margin: 0 auto;
   position: relative;
   top: 50px;
-
 }
 
+.artist-header h1{
+  font-size: 50px;
+  font-weight: bold;
+}
 
+.artist-header {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  border-bottom: solid black 2px;
+  width: 92%
+}
+
+.invisible {
+  height: 50px;
+}
+//this is the img box
 .image {
-  padding: 20px;
-  border: solid #cecbb3 1px;
-  width: 270px;
-  height: 290px;
+  width: 300px;
+  height: 300px;
   box-sizing: inherit;
   font-size: 22px;
-  float: left;
-  background: blue;
 }
-
+//the actual image
 img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  border: solid black 2px;
 }
 
 .right-hand-container {
   position: relative;
   float: right;
-  right: 150px;
+  right: 70px;
+  width: 450px;
+}
+
+.left-hand-container {
+  position: relative;
+  float: left;
+  width: 304px;
 }
 
 .edit {
-  float: right;
+  height: 50px;
+  width: 220px;
+  font-size: 24px;
   position: relative;
-  bottom: 50px;
-  height: 30px;
-  width: 150px;
+  top: 6px;
+}
+
+.finish-edit {
+  height: 50px;
+  width: 220px;
   font-size: 18px;
+  position: relative;
+  top: 6px;
+  margin-left: 5px;
 }
+
 .bio {
-  padding: 20px;
-  border: solid #cecbb3 1px;
-  width: 270px;
-  height: 70px;
-  box-sizing: inherit;
+  border: solid black 2px;
+  width: inherit;
+  box-sizing: border-box;
   font-size: 22px;
-}
-.songindex {
   padding: 20px;
-  border: solid #cecbb3 1px;
-  width: 270px;
-  box-sizing: inherit;
+}
+
+.name-submit {
+  height: 28px;
+  margin-left: 2px;
+  margin-top: 2px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.songindex {
+  padding: 0px;
+  border: solid black 2px;
+  width: inherit;
+  box-sizing: border-box;
   font-size: 22px;
 }
 
 .text {
+  width: 100%;
   font-size: 14px;
+}
+
+.upload-image {
+  position: relative;
+  top: 3px;
 }

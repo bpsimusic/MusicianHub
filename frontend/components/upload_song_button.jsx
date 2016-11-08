@@ -18,7 +18,8 @@ class UploadSongButton extends React.Component {
 
   render(){
     return (
-        <button onClick={this.upload.bind(this)}>
+        <button onClick={this.upload.bind(this)}
+                className="upload-song-file">
           Upload Song File
         </button>
       );

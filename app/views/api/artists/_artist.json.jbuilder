@@ -1,1 +1,1 @@
-json.extract! artist, :username, :id, :bio, :image_url, :songs
+json.extract! artist, :username, :id, :bio, :image_url, :songs, :name

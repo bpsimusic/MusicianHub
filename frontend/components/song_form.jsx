@@ -57,19 +57,21 @@ class SongForm extends React.Component {
     return (
       <div>
         <form className="song-form" onSubmit={this.handleSubmit.bind(this)}>
-          <label>Song Title
+          <label>Song Title &nbsp;
             <input type="text" value={this.state.title}
               onChange={this.updateField("title").bind(this)}/>
           </label>
           <br></br>
           <UploadSongButton url={this.provideUrl.bind(this)}/>
-          <label>
+          <label> &nbsp;
             <input type="text" value={this.state.song_url}></input>
           </label>
           <br></br>
-          <button>Submit Song</button>
+          <button className="submit-song">Submit Song</button>
+          <button onClick={this.cancel.bind(this)}
+                  className="cancel-submit-song">Cancel</button>
         </form>
-        <button onClick={this.cancel.bind(this)}>Cancel</button>
+
         {this.renderErrors()}
       </div>
     );

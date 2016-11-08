@@ -23,7 +23,9 @@ class SongIndexItem extends React.Component {
 
   downloadButton(song){
     return (
-      <a href={`${song.song_url}`} download>Download</a>
+      <div className="download-button">
+        <a href={`${song.song_url}`} download>Download</a>
+      </div>
     );
   }
 
@@ -33,10 +35,14 @@ class SongIndexItem extends React.Component {
     return (
       <div className="song-item">
         <label className="title">{this.props.song.title}
-        <ReactAudioPlayer src={this.props.song.song_url} />
+          <br></br>
+          <div className="song-player">
+          <ReactAudioPlayer src={this.props.song.song_url} />
+          </div>
         </label>
         {this.props.edit ? this.deleteButton(this.props.song) : null}
         {this.props.download ? this.downloadButton(this.props.song) : null}
+        <br></br>
       </div>
     );
   }

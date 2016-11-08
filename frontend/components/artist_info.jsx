@@ -7,6 +7,7 @@ class ArtistInfo extends React.Component {
   constructor(props){
     super(props);
     this.state = {edit: false,
+                  artistName: this.props.currentUser.name,
                   bio: this.props.currentUser.bio,
                   images: [],
                   editSongs: false};
@@ -21,15 +22,36 @@ class ArtistInfo extends React.Component {
     }
   }
 
+  artistHeader(){
+    return (
+      <h1>{(this.props.currentUser.id === this.props.artist.id) ?
+        this.props.currentUser.name :
+        this.props.artist.name}</h1>
+    );
+  }
+
+  artistNameEdit(){
+    return (
+    <div>
+      <form onSubmit={this.handleSubmitArtistName.bind(this)}>
+        <input type="text"
+                onChange={this.update("artistName")}
+                value={this.state.artistName}></input>
+              <button className="name-submit">Submit</button>
+      </form>
+    </div>
+    );
+  }
+
   bioEdit(){
     return (
     <div>
       {this.bio()}
       <br></br>
       <form onSubmit={this.handleSubmitBio.bind(this)}>
-        <input type="text"
-                onChange={this.update("bio")}
-                value={this.state.bio}></input>
+        <textarea cols="40" rows="5"
+            onChange={this.update("bio")}
+            value={this.state.bio}></textarea>
         <button>Submit</button>
       </form>
     </div>
@@ -48,14 +70,22 @@ class ArtistInfo extends React.Component {
 
   cancel(){
     return (
-        <button onClick={this.activateEdit}>Finish Editing</button>
+
+        <button onClick={this.activateEdit}
+                className="finish-edit">Finish Editing</button>
+
     );
   }
 
   cancelEditSongs(){
     return (
-        <button onClick={this.editSongs.bind(this)}>Cancel</button>
+        <button onClick={this.editSongs.bind(this)}
+                className="edit-songs-cancel">Cancel</button>
     );
+  }
+
+  componentWillMount(){
+    this.setState({edit: false});
   }
 
   editProfile(){
@@ -72,7 +102,8 @@ class ArtistInfo extends React.Component {
   editSongsButton(){
     if (this.props.currentUser.id === this.props.artist.id){
       return (
-      <button onClick={this.editSongs.bind(this)}>Edit Songs</button>
+      <button onClick={this.editSongs.bind(this)}
+              className="edit-songs-button">Edit Songs</button>
       );
     } else {
       return null;
@@ -94,18 +125,25 @@ class ArtistInfo extends React.Component {
     this.props.processUpdate(artist);
   }
 
+  handleSubmitArtistName(e){
+    e.preventDefault();
+    const name = this.state.artistName;
+    const artist = {artist: {name}, id: this.props.currentUser.id};
+    this.props.processUpdate(artist);
+  }
+
   imageEdit(){
     return (
     <div>
       {this.image()}
       <UploadButton postImage={this.postImage.bind(this)} />
-    </div>);
+    </div>
+    );
   }
 
   image(){
     return (
-    <div>
-      Artist Image
+    <div className="image">
       <img src={(this.props.currentUser.id === this.props.artist.id) ?
         this.props.currentUser.image_url :
         this.props.artist.image_url}></img>
@@ -118,10 +156,6 @@ class ArtistInfo extends React.Component {
     this.props.processUpdate(artist);
   }
 
-  test(){
-    return ;
-  }
-
   update(field){
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -131,29 +165,37 @@ class ArtistInfo extends React.Component {
   render(){
     return (
         <div className="artist-info group">
-          <div className="image">
-            {this.state.edit ? this.imageEdit() : this.image()}
-          </div>
-
-          <div className="right-hand-container">
+          <div className="artist-header">
+            {this.artistHeader()}
             {this.editProfile()}
+            {this.state.edit ? this.cancel() : null}
+          </div>
+          <div className="invisible">
+            {this.state.edit ? this.artistNameEdit() : null}
+          </div>
+          <div className="left-hand-container">
 
-            {this.state.edit ? this.cancel() : this.test()}
+              {this.state.edit ? this.imageEdit() : this.image()}
 
+            <br></br>
+            <br></br>
             <div className="bio">Bio
               <br></br>
               <br></br>
               {this.state.edit ? this.bioEdit() : this.bio()}
             </div>
-            <br></br>
-            <br></br>
+          </div>
+
+          <div className="right-hand-container">
+
             <div className="songindex">
-              Song Index&nbsp;
+              <header className="songs-header">
+                Songs&nbsp;&nbsp;&nbsp;
 
-              {this.editSongsButton()}
-              &nbsp;
-              {this.state.editSongs ? this.cancelEditSongs() : null}
-
+                {this.editSongsButton()}
+                &nbsp;
+                {this.state.editSongs ? this.cancelEditSongs() : null}
+              </header>
               <SongIndex props={this.props} edit={this.state.editSongs}/>
             </div>
             {this.props.children}
