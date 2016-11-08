@@ -39,7 +39,9 @@ class ArtistInfo extends React.Component {
   bio(){
     return (
       <p className="text">
-        {this.props.currentUser.bio}
+        {(this.props.currentUser.id === this.props.artist.id) ?
+          this.props.currentUser.bio :
+          this.props.artist.bio}
       </p>
     );
   }
@@ -49,11 +51,32 @@ class ArtistInfo extends React.Component {
         <button onClick={this.activateEdit}>Finish Editing</button>
     );
   }
-  
+
   cancelEditSongs(){
     return (
         <button onClick={this.editSongs.bind(this)}>Cancel</button>
     );
+  }
+
+  editProfile(){
+    if (this.props.currentUser.id === this.props.artist.id){
+      return (
+      <button className="edit"
+        onClick={this.activateEdit}>Edit Profile</button>
+      );
+    } else {
+      return null;
+    }
+  }
+
+  editSongsButton(){
+    if (this.props.currentUser.id === this.props.artist.id){
+      return (
+      <button onClick={this.editSongs.bind(this)}>Edit Songs</button>
+      );
+    } else {
+      return null;
+    }
   }
 
   editSongs(){
@@ -74,10 +97,7 @@ class ArtistInfo extends React.Component {
   imageEdit(){
     return (
     <div>
-      <div>
-        Artist Image
-        <img src={this.props.currentUser.image_url}></img>
-      </div>
+      {this.image()}
       <UploadButton postImage={this.postImage.bind(this)} />
     </div>);
   }
@@ -86,7 +106,9 @@ class ArtistInfo extends React.Component {
     return (
     <div>
       Artist Image
-      <img src={this.props.currentUser.image_url}></img>
+      <img src={(this.props.currentUser.id === this.props.artist.id) ?
+        this.props.currentUser.image_url :
+        this.props.artist.image_url}></img>
     </div>);
   }
 
@@ -114,8 +136,7 @@ class ArtistInfo extends React.Component {
           </div>
 
           <div className="right-hand-container">
-            <button className="edit"
-              onClick={this.activateEdit}>Edit Profile</button>
+            {this.editProfile()}
 
             {this.state.edit ? this.cancel() : this.test()}
 
@@ -128,11 +149,12 @@ class ArtistInfo extends React.Component {
             <br></br>
             <div className="songindex">
               Song Index&nbsp;
-              <button onClick={this.editSongs.bind(this)}>Edit Songs</button>
+
+              {this.editSongsButton()}
               &nbsp;
               {this.state.editSongs ? this.cancelEditSongs() : null}
 
-              <SongIndex songProps={this.props} edit={this.state.editSongs}/>
+              <SongIndex props={this.props} edit={this.state.editSongs}/>
             </div>
             {this.props.children}
           </div>

@@ -2,10 +2,11 @@ import {connect} from 'react-redux';
 import ArtistInfo from './artist_info';
 import {updateUser, createNewSong, deleteSong} from '../actions/session_actions';
 //your current user is your current artist.
-const mapStateToProps = ({session, artists}) => {
+const mapStateToProps = ({session, artist}) => {
   return {
   currentUser: session.currentUser,
-  errors: session.errors};
+  errors: session.errors,
+  artist: artist};
 };
 
 const mapDispatchToProps = (dispatch) => ({

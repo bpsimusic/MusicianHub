@@ -18,9 +18,6 @@ const Greeting = ({currentUser, logout, demologin}) => {
             </nav>
           </header>
         </header>
-        <div>
-            <h1>Welcome {currentUser.username}!</h1>
-        </div>
       </div>
     );
   } else {
