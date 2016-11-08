@@ -14,7 +14,9 @@ export const ArtistReducer = (state = _default, action)=>{
   switch(action.type){
     case Actions.RECEIVE_ARTIST:
       newState = action.artist;
-      return merge({}, state, newState);
+      let copyState = merge({}, state);
+      copyState.songs = [];
+      return merge({}, copyState, newState);
     default:
       return state;
   }
