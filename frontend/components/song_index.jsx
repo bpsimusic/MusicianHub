@@ -28,7 +28,8 @@ class SongIndex extends React.Component {
           return <SongIndexItem song={el}
             key={idx}
             edit={that.props.edit}
-            deleteSong={that.props.props.deleteSong}/>;
+            deleteSong={that.props.props.deleteSong}
+            download={true}/>;
         })
       );
     }

@@ -13,12 +13,20 @@ class SongIndexItem extends React.Component {
     );
   }
 
+
   deletingSong(song){
     let that = this;
     return function(e){
       that.props.deleteSong(song)
     };
   }
+
+  downloadButton(song){
+    return (
+      <a href={`${song.song_url}`} download>Download</a>
+    );
+  }
+
 
 
   render(){
@@ -28,6 +36,7 @@ class SongIndexItem extends React.Component {
         <ReactAudioPlayer src={this.props.song.song_url} />
         </label>
         {this.props.edit ? this.deleteButton(this.props.song) : null}
+        {this.props.download ? this.downloadButton(this.props.song) : null}
       </div>
     );
   }
