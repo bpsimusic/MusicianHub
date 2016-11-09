@@ -26,6 +26,10 @@ const Root = ({store}) => {
 		store.dispatch(ArtistActions.requestArtist(nextState.params.artistId));
 	};
 
+  const _clearArtist = nextState => {
+		store.dispatch(ArtistActions.clearArtist(nextState.params.artistId));
+	};
+
 
   return (<Provider store={store}>
     <Router history={hashHistory}>
@@ -33,7 +37,7 @@ const Root = ({store}) => {
         <IndexRoute component={SearchBarContainer}/>
         <Route path="login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
         <Route path="signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
-        <Route path="artists/:artistId" component={ArtistInfoContainer} onEnter={_fetchArtist}>
+        <Route path="artists/:artistId" component={ArtistInfoContainer} onEnter={_fetchArtist} onLeave={_clearArtist}>
           <Route path="newsong" component={SongFormContainer} />
         </Route>
       </Route>

@@ -16,11 +16,12 @@
  // CSS Reset
 
 // Core
+// @import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css);
 @import "base/reset.scss";
 @import "base/colors.scss";
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 
 @import url(https://fonts.googleapis.com/css?family=Roboto);
-@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css);
 
 @import "base/fonts.scss";
 @import "base/layout.scss";

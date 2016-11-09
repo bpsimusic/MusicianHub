@@ -51,8 +51,7 @@ class SearchBar extends React.Component {
             placeholder="Search for Artists and Tracks"
             />
 
-          <span className="glyphicon glyphicon-search"></span>
-
+          <i className="material-icons">search</i>
           <ul className="filler">
             {this.displaySearchResults()}
           </ul>

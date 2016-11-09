@@ -17,6 +17,10 @@ export const ArtistReducer = (state = _default, action)=>{
       let copyState = merge({}, state);
       copyState.songs = [];
       return merge({}, copyState, newState);
+    case Actions.CLEAR_ARTIST:
+      newState = merge({}, state);
+      newState = _default;
+      return newState;
     default:
       return state;
   }
