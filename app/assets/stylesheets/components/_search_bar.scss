@@ -1,0 +1,64 @@
+.searchbar {
+  position: relative;
+  width: inherit;
+  height: 400px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+
+.glyphicon {
+  background: lightgrey;
+  box-sizing: border-box;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 7px;
+  padding-right: 7px;
+  position: relative;
+  top: 0px;
+  color: #4f5154;
+  border-radius: 0px 3px 3px 0px
+}
+
+
+
+
+.filler {
+  position: relative;
+}
+
+//this is the input
+.dropdown {
+    position: relative;
+    display: inline-block;
+    height: 30px;
+    width: 300px;
+    font-size: 20px;
+    font-family: Roboto;
+}
+
+.dropdown-content {
+    display: block;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    width: 300px;
+    text-decoration: none;
+}
+
+.dropdown-content li{
+  color: black;
+  background: lightgrey;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  border-bottom: solid #61666d 1px;
+}
+
+.dropdown-content li:hover {
+  background: black;
+  color: white;
+}

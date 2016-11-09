@@ -12,6 +12,16 @@ class Api::ArtistsController < ApplicationController
     end
   end
 
+  def search
+    if params[:query].present?
+      @artists = Artist.where("lower(name) ~ ?", params[:query].downcase)
+    else
+      @artists = Artist.none
+    end
+    render "api/artists/search"
+
+  end
+
   def show
     @artist = Artist.find(params[:id])
     render "api/artists/show"
@@ -22,6 +32,7 @@ class Api::ArtistsController < ApplicationController
     @artist.update_attributes(artist_params)
     render "api/artists/show"
   end
+
 
   private
   def artist_params
