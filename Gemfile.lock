@@ -73,10 +73,6 @@ GEM
     formatador (0.2.5)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
-    grooveshark (0.2.14)
-      json (>= 1.4.6)
-      rest-client (>= 1.5.1)
-      uuid (~> 2.0)
     guard (2.14.0)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
@@ -111,8 +107,6 @@ GEM
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     lumberjack (1.0.10)
-    macaddr (1.7.1)
-      systemu (~> 2.6.2)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
     method_source (0.8.2)
@@ -191,8 +185,6 @@ GEM
       ffi (>= 0.5.0)
     rdoc (4.2.2)
       json (~> 1.4)
-    rest-client (1.6.7)
-      mime-types (>= 1.16)
     rest_client (1.8.3)
       netrc (~> 0.7.7)
     rspotify (1.10.0)
@@ -220,7 +212,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    systemu (2.6.5)
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.5)
@@ -228,8 +219,6 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.3)
       execjs (>= 0.3.0, < 3)
-    uuid (2.3.8)
-      macaddr (~> 1.0)
     web-console (2.3.0)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -247,7 +236,6 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   figaro
-  grooveshark
   guard
   guard-livereload
   jbuilder (~> 2.0)

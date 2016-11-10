@@ -13,11 +13,14 @@ Artist.create(username: 'guest', password: 123456)
   begin
     artists = RSpotify::Artist.search(artist)
     artist = artists.first
+    name = artist.name
+    genres = artist.genres.join(" ")
     sample_album = artist.albums.first
-    sample_image = sample_album.images.first
+    sample_image = sample_album.images.first["url"]
     tracks = sample_album.tracks
 
-    sample_artist = Artist.create(username: artist.name, password: 123456, image_url: sample_image)
+    sample_artist = Artist.create(name: name, bio: genres,
+                                username: artist.name, password: 123456, image_url: sample_image)
 
     tracks.each do |track|
       preview_url = track.preview_url

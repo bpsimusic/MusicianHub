@@ -8,7 +8,7 @@ const Greeting = ({currentUser, logout, demologin}) => {
         <header className="header">
           <header className="header-container">
             <div className="header-logo">
-              Musician Hub
+              <Link to="/">Musician Hub</Link>
             </div>
 
             <nav className="nav-container">
@@ -26,7 +26,7 @@ const Greeting = ({currentUser, logout, demologin}) => {
         <header className="header">
           <header className="header-container">
             <div className="header-logo">
-              Musician Hub
+              <Link to="/">Musician Hub</Link>
             </div>
 
             <nav className="nav-container">
