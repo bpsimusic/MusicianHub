@@ -10,7 +10,8 @@ class SongIndexItem extends React.Component {
 
   deleteButton(song){
     return (
-      <button onClick={this.deletingSong(song)}>Delete</button>
+      <button onClick={this.deletingSong(song)}
+            className={"delete-click"}>Delete</button>
     );
   }
 
@@ -49,7 +50,7 @@ class SongIndexItem extends React.Component {
             <button onClick={this.dispatchSong(this.props.song, this.props.artist)}
                     className="play-click">Play</button>
           </div>
-          {this.props.edit ? this.deleteButton(this.props.song) : null}
+          {this.props.edit ? this.deleteButton(this.props.song) : null} 
           {this.props.download ? this.downloadButton(this.props.song) : null}
         <br></br>
         </div>
