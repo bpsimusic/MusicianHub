@@ -6,7 +6,7 @@ class SongIndexItem extends React.Component {
   constructor(props){
     super(props);
   }
-
+  
   deleteButton(song){
     return (
       <button onClick={this.deletingSong(song)}>Delete</button>
