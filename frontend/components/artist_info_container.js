@@ -1,6 +1,8 @@
 import {connect} from 'react-redux';
 import ArtistInfo from './artist_info';
 import {updateUser, createNewSong, deleteSong} from '../actions/session_actions';
+import {addSongToQueue} from '../actions/track_player_actions.js';
+
 //your current user is your current artist.
 const mapStateToProps = ({session, artist}) => {
   let empty = session.currentUser || {songs: []};
@@ -13,7 +15,9 @@ const mapStateToProps = ({session, artist}) => {
 const mapDispatchToProps = (dispatch) => ({
   processUpdate: (artist)=>dispatch(updateUser(artist)),
   newSong: (song)=>dispatch(createNewSong(song)),
-  deleteSong: (song)=>dispatch(deleteSong(song))
+  deleteSong: (song)=>dispatch(deleteSong(song)),
+  addSongToQueue: (song)=>{dispatch(addSongToQueue(song))}
+
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArtistInfo);

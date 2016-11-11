@@ -5,8 +5,9 @@ import ReactAudioPlayer from 'react-audio-player';
 class SongIndexItem extends React.Component {
   constructor(props){
     super(props);
+    this.dispatchSongUrl = this.dispatchSongUrl.bind(this);
   }
-  
+
   deleteButton(song){
     return (
       <button onClick={this.deletingSong(song)}>Delete</button>
@@ -29,6 +30,12 @@ class SongIndexItem extends React.Component {
     );
   }
 
+  dispatchSongUrl(song){
+    return (e) => {
+      this.props.addSong(song);
+    };
+  }
+
 
 
   render(){
@@ -37,7 +44,7 @@ class SongIndexItem extends React.Component {
         <label className="title">{this.props.song.title}
           <br></br>
           <div className="song-player">
-          <ReactAudioPlayer src={this.props.song.song_url} />
+        <button onClick={this.dispatchSongUrl(this.props.song)}>Test</button>
           </div>
         </label>
         {this.props.edit ? this.deleteButton(this.props.song) : null}

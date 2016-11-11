@@ -19,7 +19,8 @@ class SongIndex extends React.Component {
           return <SongIndexItem song={el}
             key={idx}
             edit={that.props.edit}
-            deleteSong={that.props.props.deleteSong}/>;
+            deleteSong={that.props.props.deleteSong}
+            addSong = {that.props.props.addSongToQueue}/>;
         })
       );
     } else {
@@ -29,7 +30,8 @@ class SongIndex extends React.Component {
             key={idx}
             edit={that.props.edit}
             deleteSong={that.props.props.deleteSong}
-            download={true}/>;
+            download={true}
+            addSong = {that.props.props.addSongToQueue}/>;
         })
       );
     }

@@ -1,11 +1,39 @@
 .footer {
-  background: purple;
+  background: $mediumblue;
   position: fixed;
+  height: 50px;
   left: 0;
   right: 0;
   bottom: 0;
+  display: flex;
+  align-items: center;
 }
 
-.sound-player{
+.play-button {
+  background: $mediumblue;
+  height: 100%;
+  width: 50px;
+}
+
+.play-button:focus {
+  outline: none;
+}
+
+.input-slider {
+  position: relative;
+  top: 2px;
+}
+
+.fa-play:before {
+    content: "\f04b";
+    font-size: 28px;
+}
+
+.fa-pause:before {
+    content: "\f04c";
+    font-size: 28px;
+}
+
+.seek {
 
 }

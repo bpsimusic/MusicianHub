@@ -7,7 +7,6 @@ export default class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-    url: "https://p.scdn.co/mp3-preview/415b97456eb53a1dec9cd655d1dfdb3531b2777a",
     playing: true,
     volume: 0.1,
     played: 0,
@@ -22,6 +21,8 @@ export default class App extends React.Component {
     this.onSeekMouseUp = this.onSeekMouseUp.bind(this);
     this.onProgress = this.onProgress.bind(this);
   }
+
+
 
   playPause(){
     this.setState({ playing: !this.state.playing })
@@ -49,13 +50,22 @@ export default class App extends React.Component {
     }
   }
 
+  pause(){
+    return(
+      <i className="fa fa-pause"></i>
+    );
+  }
+
+  play(){
+    return(
+      <i className="fa fa-play" ></i>
+    );
+  }
 
   render(){
-
     return (
       <div className="footer">
-
-        <ReactPlayer url={this.state.url}
+        <ReactPlayer url={this.props.track_player.song_url}
           ref={player => { this.player = player; }}
           playing={this.state.playing}
           width={0}
@@ -66,22 +76,22 @@ export default class App extends React.Component {
           onProgress={this.onProgress}
           onDuration={duration => this.setState({ duration })}
         />
-        <button onClick={this.playPause}>{this.state.playing ? 'Pause' : 'Play'}</button>
+      <button className={"play-button"} onClick={this.playPause}>{this.state.playing ? this.pause() : this.play()}</button>
 
-        <label>Seek
+        <label className={"seek"}>&nbsp;&nbsp;Seek&nbsp;&nbsp;
           <input type='range' min={0} max={1} step='any'
                      value={this.state.played}
                      onMouseDown={this.onSeekMouseDown}
                      onChange={this.onSeekChange}
-                     onMouseUp={this.onSeekMouseUp} />
+                     onMouseUp={this.onSeekMouseUp}
+                     className={"input-slider"}/>
         </label>
 
-
-
-        <label> Volume
+        <label> &nbsp;&nbsp;Volume&nbsp;&nbsp;
           <input type="range" min={0} max={1} step='any'
               value={this.state.volume}
-             onChange={this.setVolume}/>
+             onChange={this.setVolume}
+             className={"input-slider"}/>
         </label>
       </div>
     );
