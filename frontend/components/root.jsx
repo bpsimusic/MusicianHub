@@ -8,6 +8,7 @@ import ArtistInfoContainer from './artist_info_container';
 import SongIndexContainer from './song_index_container';
 import SongFormContainer from './song_form_container';
 import SearchBarContainer from './search_bar_container';
+import DemoLoginContainer from './demologin_container';
 
 import * as SessionActions from "../actions/session_actions";
 import * as ArtistActions from "../actions/artist_actions";
@@ -37,6 +38,7 @@ const Root = ({store}) => {
         <IndexRoute component={SearchBarContainer}/>
         <Route path="login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
         <Route path="signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
+        <Route path="demologin" component={DemoLoginContainer} />
         <Route path="artists/:artistId" component={ArtistInfoContainer} onEnter={_fetchArtist} onLeave={_clearArtist}>
           <Route path="newsong" component={SongFormContainer} />
         </Route>
