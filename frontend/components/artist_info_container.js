@@ -16,7 +16,7 @@ const mapDispatchToProps = (dispatch) => ({
   processUpdate: (artist)=>dispatch(updateUser(artist)),
   newSong: (song)=>dispatch(createNewSong(song)),
   deleteSong: (song)=>dispatch(deleteSong(song)),
-  addSongToQueue: (song)=>{dispatch(addSongToQueue(song))}
+  addSongToQueue: (song, artist)=>{dispatch(addSongToQueue(song, artist))}
 
 });
 

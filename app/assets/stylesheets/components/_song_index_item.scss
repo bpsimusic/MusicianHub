@@ -1,17 +1,32 @@
 .song-item {
+  padding-bottom: 5px;
 }
 
 .title {
   font-size: 16px;
+  position: relative;
+  top: 1px;
 }
 
 .song-player {
   margin-top: 10px;
+  display:inline-block;
+}
+
+.play-click {
+  width: 80px;
+  background: lightblue;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  position: relative;
+  top: 1px;
 }
 
 .download-button {
-
-    display: block;
+    display: inline-block;
     width: 80px;
     height: 20px;
     background: lightblue;
@@ -22,4 +37,10 @@
     color: white;
     font-weight: bold;
     font-size: 14px;
+    margin-left: 1px;
+}
+
+.download-button a{
+  position: relative;
+  top: 1px;
 }

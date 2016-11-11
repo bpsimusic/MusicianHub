@@ -1,18 +1,36 @@
 .footer {
-  background: $mediumblue;
+  background: white;
   position: fixed;
-  height: 50px;
+  height: 70px;
   left: 0;
   right: 0;
   bottom: 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px;
+}
+
+.song-controls {
   display: flex;
   align-items: center;
+  width: 400px;
+  height: 100%;
+  float: left;
 }
+
+.artist-info-section {
+  position: relative;
+  left: 30px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+
 
 .play-button {
   background: $mediumblue;
   height: 100%;
-  width: 50px;
+  width: 70px;
 }
 
 .play-button:focus {
@@ -22,6 +40,7 @@
 .input-slider {
   position: relative;
   top: 2px;
+  margin: 0px;
 }
 
 .fa-play:before {
@@ -34,6 +53,12 @@
     font-size: 28px;
 }
 
-.seek {
+.small-artist-image {
+  width: auto;
+  height: 100%;
+  border: none;
+}
 
+.song-slider {
+  margin-left: 20px;
 }

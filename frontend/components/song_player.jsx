@@ -20,6 +20,7 @@ export default class App extends React.Component {
     this.onSeekChange = this.onSeekChange.bind(this);
     this.onSeekMouseUp = this.onSeekMouseUp.bind(this);
     this.onProgress = this.onProgress.bind(this);
+    this.displaySongInPlayer = this.displaySongInPlayer.bind(this);
   }
 
 
@@ -62,6 +63,16 @@ export default class App extends React.Component {
     );
   }
 
+  displaySongInPlayer(){
+    if (this.props.track_player.title===undefined){
+      return null;
+    }  else {
+      return (
+        `: ${this.props.track_player.title}`
+      );
+    }
+  }
+
   render(){
     return (
       <div className="footer">
@@ -76,23 +87,31 @@ export default class App extends React.Component {
           onProgress={this.onProgress}
           onDuration={duration => this.setState({ duration })}
         />
-      <button className={"play-button"} onClick={this.playPause}>{this.state.playing ? this.pause() : this.play()}</button>
+      <section className="song-controls group">
+        <button className={"play-button"} onClick={this.playPause}>{this.state.playing ? this.pause() : this.play()}</button>
 
-        <label className={"seek"}>&nbsp;&nbsp;Seek&nbsp;&nbsp;
-          <input type='range' min={0} max={1} step='any'
-                     value={this.state.played}
-                     onMouseDown={this.onSeekMouseDown}
-                     onChange={this.onSeekChange}
-                     onMouseUp={this.onSeekMouseUp}
-                     className={"input-slider"}/>
-        </label>
+          <label className={"song-slider"}>Seek <br></br>
+            <input type='range' min={0} max={1} step='any'
+                       value={this.state.played}
+                       onMouseDown={this.onSeekMouseDown}
+                       onChange={this.onSeekChange}
+                       onMouseUp={this.onSeekMouseUp}
+                       className={"input-slider"}/>
+          </label>
 
-        <label> &nbsp;&nbsp;Volume&nbsp;&nbsp;
-          <input type="range" min={0} max={1} step='any'
-              value={this.state.volume}
-             onChange={this.setVolume}
-             className={"input-slider"}/>
-        </label>
+          <label className={"song-slider"}> Volume <br></br>
+            <input type="range" min={0} max={1} step='any'
+                value={this.state.volume}
+               onChange={this.setVolume}
+               className={"input-slider"}/>
+          </label>
+      </section>
+        <section className={"artist-info-section"}>
+          <img src={this.props.track_player_artist.image_url}
+               className={"small-artist-image"}></img>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{this.props.track_player_artist.name}
+          {this.displaySongInPlayer()}
+        </section>
       </div>
     );
   }
