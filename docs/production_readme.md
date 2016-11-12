@@ -9,7 +9,7 @@ MusicianHub is a full-stack web application based off Bandcamp. It uses Ruby on 
 
 On successful signup, an artist is created in the database. New users will be led to their profile page, where they can add their name, profile image, and bio with the Edit button. These attributes will be added to the database when the user adds them.
 
-![image of Edit Profile](wireframes/edit-profile.png)
+![image of Edit Profile](/docs/wireframes/edit-profile.png)
 
 
 ## Artist Song Creation and Editing
@@ -18,7 +18,7 @@ Songs are handled in the songs table in the database, and each song belongs to a
 
 Users can download songs from an artist playlist, as well as play them.
 
-![image of Songs Index](wireframes/song-index.png)
+![image of Songs Index](/docs/wireframes/song-index.png)
 
 ## Cloudinary
 
@@ -28,7 +28,7 @@ All songs are stored in the Rails database using song_url, which points to Cloud
 
 The search bar is the primary interface for finding music. Artists will be provided in a dropdown menu based on the user input.
 
-![image of Search Bar](wireframes/search-bar.png)
+![image of Search Bar](/docs/wireframes/search-bar.png)
 
 ## Song Player
 
