@@ -15,6 +15,13 @@ h1, h2, p, strong, em, a, main {
   width: inherit;
 }
 
+video {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: auto;
+}
+
 
 
 .group:after {
