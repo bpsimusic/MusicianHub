@@ -16,7 +16,8 @@ const mapDispatchToProps = (dispatch, {location})=>{
   const processForm = (formType === "login") ? login : signup;
   return {
     processForm: (artist)=>{dispatch(processForm(artist))},
-    formType
+    formType,
+    demologin: ()=>dispatch({type: "LOGIN", artist: {artist: {username: 'guest', password: 123456}}})
   };
 };
 

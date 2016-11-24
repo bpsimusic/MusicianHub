@@ -1,10 +1,7 @@
 import React from 'react';
 import {Link, withRouter} from 'react-router';
 
-
-
-
-const Greeting = ({currentUser, logout, demologin, router}) => {
+const Greeting = ({currentUser, logout, router}) => {
   if(currentUser){
     return (
       <div>
@@ -36,7 +33,6 @@ const Greeting = ({currentUser, logout, demologin, router}) => {
               <ul className="list-container">
                 <li><Link to="/signup">Sign Up</Link></li>
                 <li><Link to="/login">Login</Link></li>
-                <li><Link to="/demologin" onClick={demologin}>Demo Login</Link></li>
               </ul>
             </nav>
           </header>
