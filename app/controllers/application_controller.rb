@@ -22,11 +22,6 @@ class ApplicationController < ActionController::Base
      !!current_user
   end
 
-  def destroy_if_guest_user(artist)
-    if artist.username == "guest"
-      artist.delete
-    end
-  end
 
   private
   def require_user

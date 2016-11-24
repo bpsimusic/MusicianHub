@@ -19,7 +19,6 @@ class Api::SessionsController < ApplicationController
     @artist = current_user
     if @artist
       logout
-      destroy_if_guest_user(@artist)
       render "api/artists/show"
     else
       render json: ["No one signed in"], status: 404

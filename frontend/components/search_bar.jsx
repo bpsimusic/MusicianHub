@@ -1,5 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
+// import Video from 'react-html5video';
+// import video from '../../app/assets/videos/concert.mp4';
 
 class SearchBar extends React.Component {
   constructor(props){
@@ -9,6 +11,7 @@ class SearchBar extends React.Component {
     this.renderResults = this.renderResults.bind(this);
     this.displaySearchResults = this.displaySearchResults.bind(this);
   }
+
 
   fetchArtists(e){
       $.ajax({
@@ -57,6 +60,10 @@ class SearchBar extends React.Component {
           </ul>
 
         </label>
+        <video src="http://res.cloudinary.com/dndf8vddw/video/upload/v1479756222/v3v7nvs80vx962wryxl9.mp4"
+          autoPlay
+          loop
+          className="video"/>
       </div>
     );
   }
