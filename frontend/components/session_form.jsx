@@ -41,7 +41,7 @@ class SessionForm extends React.Component {
 
   renderErrors() {
     return (
-      <ul>
+      <ul className="errors-list">
           {this.props.errors.map((error, i) => (
             <li key={i}
                 className="errors">
@@ -76,18 +76,15 @@ class SessionForm extends React.Component {
           <br></br>
 
           <br></br>
-          <button>
+          <button className={"entry-button"}>
               {this.props.formType === "signup" ? "Sign Up" : "Login"}
           </button>
 
-          <br></br>
-          {this.renderErrors()}
         </form>
-
-        <button onClick={this.props.demologin}>
+        <button className={"demo"} onClick={this.props.demologin}>
           Demo Login
         </button>
-
+        {this.renderErrors()}
       </div>
     );
   }

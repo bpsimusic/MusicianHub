@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
-// import Video from 'react-html5video';
-// import video from '../../app/assets/videos/concert.mp4';
+import {SampleListItem} from './sample_list_item';
 
 class SearchBar extends React.Component {
   constructor(props){
@@ -10,8 +9,12 @@ class SearchBar extends React.Component {
     this.fetchArtists = this.fetchArtists.bind(this);
     this.renderResults = this.renderResults.bind(this);
     this.displaySearchResults = this.displaySearchResults.bind(this);
+
   }
 
+  componentWillMount(){
+    this.props.fetchArtists();
+  }
 
   fetchArtists(e){
       $.ajax({
@@ -44,8 +47,8 @@ class SearchBar extends React.Component {
   }
 
   render(){
-
     return(
+      <div>
       <div className="searchbar">
         <label className="flex-container">
           <input type="text"
@@ -64,6 +67,19 @@ class SearchBar extends React.Component {
           autoPlay
           loop
           className="video"/>
+        </div>
+
+        <div className={"artist-profiles"}>
+          <h1>Check Out Artist Profiles!</h1>
+
+            <ul className={"artist-profiles-container"}>
+              {this.props.artists.map((el, idx)=>{
+
+                return <SampleListItem artist={el} key={idx}/>;
+              })}
+            </ul>
+        </div>
+        <footer></footer>
       </div>
     );
   }

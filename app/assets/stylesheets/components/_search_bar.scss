@@ -1,26 +1,17 @@
-.searchbar {
-  position: relative;
-  width: inherit;
-  height: 400px;
+.sample-artist a {
+  text-decoration: underline;
+}
+
+.sample-artist a:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+.artist-profiles-container {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.material-icons {
-  position: relative;
-  top: 4px;
-  background: lightgrey;
-  padding-top: 5px;
-  padding-left: 6px;
-  padding-right: 6px;
-  height: 36px;
-  box-sizing: border-box;
-  border-radius: 0px 3px 3px 0px
-}
-
-.filler {
-  position: relative;
+  justify-content: flex-start;
+  width: 100%;
+  flex-wrap: wrap;
 }
 
 //this is the input
@@ -55,4 +46,41 @@
 .dropdown-content li:hover {
   background: black;
   color: white;
+}
+
+
+.filler {
+  position: relative;
+}
+
+.material-icons {
+  position: relative;
+  top: 4px;
+  background: lightgrey;
+  padding-top: 5px;
+  padding-left: 6px;
+  padding-right: 6px;
+  height: 36px;
+  box-sizing: border-box;
+  border-radius: 0px 3px 3px 0px
+}
+
+.sample-artist {
+  text-align: center;
+  margin-bottom: 30px;
+  margin-right: 50px;
+}
+
+.sample-artist-image {
+  width: 225px;
+  height: 225px;
+}
+
+.searchbar {
+  position: relative;
+  width: inherit;
+  height: 400px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }

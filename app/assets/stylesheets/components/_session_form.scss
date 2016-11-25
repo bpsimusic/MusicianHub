@@ -1,3 +1,30 @@
+
+.demo {
+  position: fixed;
+  top: 340px;
+}
+
+.entry-button {
+  left: 107px;
+  position: relative;
+}
+
+.errors {
+  font-size: 14px;
+  color: $red;
+  position: relative;
+  right: 40px;
+  margin-bottom: 4px;
+}
+
+.errors-list {
+  font-size: 14px;
+  color: $red;
+  position: relative;
+  margin-bottom: 0px;
+
+}
+
 .form-container {
   padding: 20px;
   border: solid #cecbb3 1px;
@@ -17,14 +44,4 @@
 .form-container input{
   font-size: 18px;
   margin-top: 10px;
-}
-
-
-
-.errors {
-  font-size: 14px;
-  color: $red;
-  position: relative;
-  right: 40px;
-  margin-bottom: 4px;
 }

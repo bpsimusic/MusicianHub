@@ -2,6 +2,12 @@ class Api::ArtistsController < ApplicationController
   def new
   end
 
+  def index
+    
+    @artists = Artist.order("RANDOM()").limit(12)
+    render "api/artists/sample"
+  end
+
   def create
     @artist = Artist.new(artist_params)
     if(@artist.save)

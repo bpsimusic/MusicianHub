@@ -5,8 +5,9 @@ import SongPlayerContainer from './song_player_container';
 const App = ({children}) => (
   <div>
     <GreetingContainer />
-    
+
     {children}
+    
     <SongPlayerContainer />
   </div>
 );
