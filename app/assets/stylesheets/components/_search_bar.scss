@@ -9,8 +9,7 @@
 
 .artist-profiles-container {
   display: flex;
-  justify-content: flex-start;
-  width: 100%;
+  justify-content: space-around;
   flex-wrap: wrap;
 }
 
@@ -66,6 +65,7 @@
 }
 
 .sample-artist {
+  position: relative;
   text-align: center;
   margin-bottom: 30px;
   margin-right: 50px;
@@ -75,6 +75,14 @@
   width: 225px;
   height: 225px;
 }
+
+.sample-artist-image:hover{
+  cursor: pointer;
+}
+
+
+
+
 
 .searchbar {
   position: relative;
