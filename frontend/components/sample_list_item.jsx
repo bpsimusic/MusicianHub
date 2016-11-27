@@ -16,11 +16,11 @@ class SampleListItem extends React.Component {
   render(){
       return (
         <li className={"sample-artist"}>
-          <img src={this.props.artist.image}
+          <img src={this.props.artist.image_url}
                className={"sample-artist-image"}
                onClick={this.playSong(this.props.artist.song, this.props.artist)}>
           </img>
-          
+
              <br></br>
           <Link to={`/artists/${this.props.artist.id}`}>{this.props.artist.name}</Link>
         </li>

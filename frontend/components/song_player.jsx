@@ -109,7 +109,7 @@ export default class App extends React.Component {
       </section>
         <section className={"artist-info-section"}>
           <Link to={`/artists/${this.props.track_player_artist.id}`}>
-          <img src={this.props.track_player_artist.image}
+          <img src={this.props.track_player_artist.image_url}
 
                className={"small-artist-image"}></img></Link>
                <Link to={`/artists/${this.props.track_player_artist.id}`}
