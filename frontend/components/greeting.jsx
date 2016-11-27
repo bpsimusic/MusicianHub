@@ -13,6 +13,7 @@ const Greeting = ({currentUser, logout, router}) => {
 
             <nav className="nav-container">
               <ul className="list-container">
+                <li><Link to={`/artists/${currentUser.id}`}>Profile</Link></li>
                 <li><Link to="/" onClick={logout}>Logout</Link></li>
               </ul>
             </nav>
