@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactPlayer from 'react-player';
 import Duration from './duration';
+import {Link} from 'react-router';
 
 
 export default class App extends React.Component {
@@ -107,10 +108,15 @@ export default class App extends React.Component {
           </label>
       </section>
         <section className={"artist-info-section"}>
-          <img src={this.props.track_player_artist.image_url}
-               className={"small-artist-image"}></img>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{this.props.track_player_artist.name}
-          {this.displaySongInPlayer()}
+          <Link to={`/artists/${this.props.track_player_artist.id}`}>
+          <img src={this.props.track_player_artist.image}
+
+               className={"small-artist-image"}></img></Link>
+               <Link to={`/artists/${this.props.track_player_artist.id}`}
+                 className={"link-to-artist"}>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{this.props.track_player_artist.name}</Link>
+          <Link to={`/artists/${this.props.track_player_artist.id}`}
+            className={"link-to-artist"}>{this.displaySongInPlayer()}</Link>
         </section>
       </div>
     );
