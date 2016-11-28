@@ -3,7 +3,7 @@ class Api::ArtistsController < ApplicationController
   end
 
   def index
-    
+
     @artists = Artist.order("RANDOM()").limit(12)
     render "api/artists/sample"
   end
@@ -20,7 +20,7 @@ class Api::ArtistsController < ApplicationController
 
   def search
     if params[:query].present?
-      @artists = Artist.where("lower(name) ~ ?", params[:query].downcase)
+      @artists = Artist.where("lower(name) ~ ?", params[:query].downcase).limit(10)
     else
       @artists = Artist.none
     end

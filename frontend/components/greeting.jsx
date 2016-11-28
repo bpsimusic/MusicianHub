@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link, withRouter} from 'react-router';
+import SearchBarContainer from './search_bar_container';
 
 const Greeting = ({currentUser, logout, router}) => {
   if(currentUser){
@@ -9,6 +10,7 @@ const Greeting = ({currentUser, logout, router}) => {
           <header className="header-container">
             <div className="header-logo">
               <Link to="/">Musician Hub</Link>
+              <SearchBarContainer />
             </div>
 
             <nav className="nav-container">
@@ -28,7 +30,9 @@ const Greeting = ({currentUser, logout, router}) => {
           <header className="header-container">
             <div className="header-logo">
               <Link to="/">Musician Hub</Link>
+              <SearchBarContainer />
             </div>
+
 
             <nav className="nav-container">
               <ul className="list-container">
