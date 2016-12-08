@@ -1,17 +1,27 @@
 import React from 'react';
-import {Link} from 'react-router';
+import {withRouter, Link} from 'react-router';
 
 class SearchBar extends React.Component {
   constructor(props){
     super(props);
-    this.state = {artists: []};
+    this.state = {artists: [], searchInput: ""};
+    this.clearForm = this.clearForm.bind(this);
     this.fetchArtists = this.fetchArtists.bind(this);
     this.renderResults = this.renderResults.bind(this);
     this.displaySearchResults = this.displaySearchResults.bind(this);
   }
 
+  clearForm(artist){
+    let that = this;
+    return function(e){
+      e.preventDefault();
+      that.setState({artists: [], searchInput: ""});
+      that.props.router.push(`/artists/${artist.id}`);
+    }
+  }
 
   fetchArtists(e){
+    this.setState({searchInput: e.currentTarget.value});
       $.ajax({
         url: "/api/artists/search",
         dataType: "json",
@@ -31,7 +41,7 @@ class SearchBar extends React.Component {
         <div className="dropdown-content">
         {this.state.artists.map((artist, idx)=>{
           return (
-              <Link to={`/artists/${artist.id}`}><li key={idx}>
+              <Link to={`/artists/${artist.id}`} onClick={this.clearForm(artist)}><li key={idx}>
                 {artist.artist}</li></Link>
           );
         })}
@@ -49,6 +59,7 @@ class SearchBar extends React.Component {
             onChange={this.fetchArtists}
             className="dropdown"
             placeholder="Search for Artists and Tracks"
+            value={this.state.searchInput}
             />
 
           <ul className="filler">
@@ -61,4 +72,4 @@ class SearchBar extends React.Component {
 }
 
 
-export default SearchBar;
+export default withRouter(SearchBar);
