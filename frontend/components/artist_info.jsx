@@ -51,7 +51,8 @@ class ArtistInfo extends React.Component {
       <form onSubmit={this.handleSubmitBio.bind(this)}>
         <textarea cols="40" rows="5"
             onChange={this.update("bio")}
-            value={this.state.bio}></textarea>
+            value={this.state.bio}
+            className={"bio-textarea"}></textarea>
         <button>Submit</button>
       </form>
     </div>
@@ -167,7 +168,7 @@ class ArtistInfo extends React.Component {
         <div className="artist-info group">
           <div className="artist-header">
             {this.artistHeader()}
-            {this.editProfile()}
+            {this.state.edit ? null: this.editProfile()}
             {this.state.edit ? this.cancel() : null}
           </div>
           <div className="invisible">
