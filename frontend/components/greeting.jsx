@@ -9,7 +9,8 @@ const Greeting = ({currentUser, logout, router}) => {
         <header className="header">
           <header className="header-container">
             <div className="header-logo">
-              <Link to="/">Musician Hub</Link>
+
+              <Link to="/"><span className="fa fa-music" aria-hidden="true"></span>Musician Hub</Link>
               <SearchBarContainer />
             </div>
 
@@ -29,7 +30,7 @@ const Greeting = ({currentUser, logout, router}) => {
         <header className="header">
           <header className="header-container">
             <div className="header-logo">
-              <Link to="/">Musician Hub</Link>
+              <Link to="/"><span className="fa fa-music" aria-hidden="true"></span>Musician Hub</Link>
               <SearchBarContainer />
             </div>
 
