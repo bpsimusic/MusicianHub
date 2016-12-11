@@ -2,7 +2,8 @@ import * as Actions from "../actions/track_player_actions";
 import {merge} from "lodash";
 const _default = {
       songs: [{}],
-      artist: {}
+      artist: {},
+      playing: false
 };
 
 export const TrackPlayerReducer = (state = _default, action)=>{
@@ -14,6 +15,7 @@ export const TrackPlayerReducer = (state = _default, action)=>{
       newState.songs.shift();
       newState.songs.push(action.song);
       newState.artist = action.artist;
+      newState.playing = true;
       return newState;
     default:
       return state;

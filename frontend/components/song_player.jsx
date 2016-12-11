@@ -24,7 +24,12 @@ export default class App extends React.Component {
     this.displaySongInPlayer = this.displaySongInPlayer.bind(this);
   }
 
-
+//incoming props playing is true, then setstate to be true.
+  componentWillReceiveProps(){
+    if (this.props.track_playing){
+     this.setState({playing: true});
+    }
+  }
 
   playPause(){
     this.setState({ playing: !this.state.playing })
