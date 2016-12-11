@@ -161,6 +161,7 @@ li.sample-artist:hover div.play-button-image {
 }
 
 .video-container button {
-  position: relative;
-  top: 30px;
+  position: absolute;
+  z-index: 5;
+  top: 270px;
 }
