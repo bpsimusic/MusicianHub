@@ -1,7 +1,7 @@
 
 .demo {
-  position: fixed;
-  top: 340px;
+  position: absolute;
+  top: 239px;
 }
 
 .entry-button {
@@ -48,6 +48,7 @@ background: #f1f4f4;
 
 .splash-image {
   background: url(https://res.cloudinary.com/dndf8vddw/image/upload/v1481433338/akbd4la37y4ashf9qtdh.jpg);
-  height: 80vh;
-  background-position: 50%;
+  height: 100vh;
+  background-position: 0;
+  background-size: cover;
 }
