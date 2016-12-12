@@ -18,7 +18,11 @@ class HomePage extends React.Component {
   }
 
   signup(){
-    this.props.router.push("/signup");
+    if (this.props.loggedIn){
+      this.props.router.push(`/artists/${this.props.loggedIn.id}`);
+    } else {
+      this.props.router.push("/signup");
+    }
   }
 
   render(){
@@ -26,7 +30,7 @@ class HomePage extends React.Component {
       <div>
         <div className="video-container">
           <h1>GET DISCOVERED</h1>
-          {this.props.loggedIn ? null : <button onClick={this.signup}>Create a Profile</button>}
+          {this.props.loggedIn ? <button onClick={this.signup}>Create a Profile</button> : <button onClick={this.signup}>Create a Profile</button>}
 
           <video src="http://res.cloudinary.com/dndf8vddw/video/upload/v1479756222/v3v7nvs80vx962wryxl9.mp4"
             autoPlay
