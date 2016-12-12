@@ -145,9 +145,8 @@ li.sample-artist:hover div.play-button-image {
   position: relative;
   left: 0px;
   top: 0px;
-  display: flex;
   align-items: center;
-  justify-content: space-around;
+  text-align: center;
 }
 
 .video-container h1 {
@@ -164,7 +163,7 @@ li.sample-artist:hover div.play-button-image {
 }
 
 .video-container button {
-  position: absolute;
+  position: relative;
   z-index: 5;
   top: 270px;
 }
