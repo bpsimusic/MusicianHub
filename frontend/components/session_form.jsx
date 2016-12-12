@@ -82,11 +82,11 @@ class SessionForm extends React.Component {
             <button className={"entry-button"}>
                 {this.props.formType === "signup" ? "Sign Up" : "Login"}
             </button>
-
           </form>
-          <button className={"demo"} onClick={this.props.demologin}>
-            Demo Login
-          </button>
+        
+            <button className={"demo"} onClick={this.props.demologin}>
+              Demo Login
+            </button>
           {this.renderErrors()}
         </div>
       </div>

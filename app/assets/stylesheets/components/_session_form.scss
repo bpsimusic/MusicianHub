@@ -1,11 +1,11 @@
 
 .demo {
-  position: absolute;
-  top: 239px;
+  width: 270px;
+  margin-top: 10px;
 }
 
 .entry-button {
-  left: 107px;
+  width: 100%;
   position: relative;
 }
 
@@ -47,7 +47,8 @@ background: #f1f4f4;
 }
 
 .sessionForm-input {
-  max-width: 90%;
+  max-width: 100%;
+
 }
 
 .splash-image {
