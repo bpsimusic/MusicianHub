@@ -13,6 +13,10 @@ class HomePage extends React.Component {
     this.props.fetchArtists();
   }
 
+  componentWillUnmount(){
+    this.props.clearArtists();
+  }
+
   signup(){
     this.props.router.push("/signup");
   }
@@ -22,7 +26,8 @@ class HomePage extends React.Component {
       <div>
         <div className="video-container">
           <h1>GET DISCOVERED</h1>
-          <button onClick={this.signup}>Create a Profile</button>
+          {this.props.loggedIn ? null : <button onClick={this.signup}>Create a Profile</button>}
+
           <video src="http://res.cloudinary.com/dndf8vddw/video/upload/v1479756222/v3v7nvs80vx962wryxl9.mp4"
             autoPlay
             loop

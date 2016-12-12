@@ -9,8 +9,10 @@ export const SampleReducer = (state = _default, action)=>{
   let newState = {};
   switch(action.type){
     case Actions.RECEIVE_ARTISTS:
-    
       newState.artists = action.artists;
+      return newState;
+    case Actions.CLEAR_ARTISTS:
+      newState.artists = [];
       return newState;
     default:
       return state;

@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import HomePage from './home_page';
-import {requestSampleArtists} from '../actions/sample_actions';
+import {requestSampleArtists, clearArtists} from '../actions/sample_actions';
 import {addSongToQueue} from '../actions/track_player_actions.js';
 
 const mapStateToProps = ({sample, session}) => ({
@@ -10,6 +10,7 @@ const mapStateToProps = ({sample, session}) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchArtists: ()=>dispatch(requestSampleArtists()),
+  clearArtists: ()=>dispatch(clearArtists()),
   addSongToQueue: (song, artist)=>{dispatch(addSongToQueue(song, artist))},
   demologin: ()=>dispatch({type: "LOGIN", artist: {artist: {username: 'guest', password: 123456}}})
 });
