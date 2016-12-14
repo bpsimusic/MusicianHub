@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactPlayer from 'react-player';
-import Duration from './duration';
 import {Link} from 'react-router';
 
 
@@ -12,7 +11,6 @@ export default class App extends React.Component {
     volume: 0.1,
     played: 0,
     loaded: 0,
-    duration: 0
     };
     this.playPause = this.playPause.bind(this);
     this.stop = this.stop.bind(this);
@@ -91,7 +89,6 @@ export default class App extends React.Component {
           className={"sound-player"}
           volume={this.state.volume}
           onProgress={this.onProgress}
-          onDuration={duration => this.setState({ duration })}
         />
       <section className="song-controls group">
         <button className={"play-button"} onClick={this.playPause}>{this.state.playing ? this.pause() : this.play()}</button>
