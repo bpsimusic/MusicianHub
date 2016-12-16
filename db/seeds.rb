@@ -8,6 +8,14 @@
 require_relative "1000_artists.rb"
 
 Artist.create(username: 'guest', password: 123456)
+Song.create(title: "Work", artist_id: 937, song_url: "https://p.scdn.co/mp3-preview/4f6c0c8be9f6ccd01a2dd0439897503b56e4c777")
+Song.create(title: "A-Yo", artist_id: 937, song_url: "https://p.scdn.co/mp3-preview/380f0412c30a0c7abd92c8ee4ebdbea74946be05")
+Song.create(title: "In Common", artist_id: 937, song_url: "https://p.scdn.co/mp3-preview/d262bf3e9e0a16dad3e1d223871033a7d70267ae")
+Song.create(title: "We Are Never Ever Getting Back Together", artist_id: 937, song_url: "https://p.scdn.co/mp3-preview/fbf998b44136c3dcf90d412cf1cb27c3b8623735?cid=null")
+Song.create(title: "Not a Bad Thing", artist_id: 937, song_url: "https://p.scdn.co/mp3-preview/6b17b9987d6e5c2eaafb55ff2fe555294722dd2e")
+Song.create(title: "XO", artist_id: 937, song_url: "https://p.scdn.co/mp3-preview/df9b5efc4577e9ef65491b5a3f74f3cf428297d3")
+
+
 
 @list.each do |artist|
   begin
