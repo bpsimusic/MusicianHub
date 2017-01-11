@@ -24,7 +24,7 @@ class HomePage extends React.Component {
       this.props.router.push("/signup");
     }
   }
-
+//https://res.cloudinary.com/dndf8vddw/video/upload/v1479756222/v3v7nvs80vx962wryxl9.mp4
   render(){
     return (
       <div>
@@ -36,7 +36,7 @@ class HomePage extends React.Component {
           </div>
           <button onClick={this.signup} className={"create-profile-button"}>Create a Profile</button>
 
-          <video src="https://res.cloudinary.com/dndf8vddw/video/upload/v1479756222/v3v7nvs80vx962wryxl9.mp4"
+          <video src="https://s3-us-west-1.amazonaws.com/chime-audio-assets/video/hero.mp4"
             autoPlay
             loop
             className="video"/>
