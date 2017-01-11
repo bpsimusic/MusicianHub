@@ -1,4 +1,12 @@
 
+
+.fa-headphones {
+  font-size: 35px !important;
+  margin-right: 8px;
+  position:relative;
+  top: 3px;
+}
+
 .header {
   background: black;
   color: white;
@@ -21,6 +29,11 @@
   width: 550px;
   justify-content: space-between;
   align-items: center;
+}
+
+.home-page-revisit {
+  position: relative;
+  bottom: 3px;
 }
 
 .nav-container {

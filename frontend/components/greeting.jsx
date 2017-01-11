@@ -10,7 +10,7 @@ const Greeting = ({currentUser, logout, router}) => {
           <header className="header-container">
             <div className="header-logo">
 
-              <Link to="/"><span className="fa fa-guitar" aria-hidden="true"></span>Musician Hub</Link>
+              <Link to="/" className="home-page-revisit"><span className="fa fa-headphones" aria-hidden="true"></span>Musician Hub</Link>
               <SearchBarContainer />
             </div>
 
@@ -30,7 +30,7 @@ const Greeting = ({currentUser, logout, router}) => {
         <header className="header">
           <header className="header-container">
             <div className="header-logo">
-              <Link to="/"><span className="fa fa-guitar-acoustic" aria-hidden="true"></span>Musician Hub</Link>
+              <Link to="/" className="home-page-revisit"><span className="fa fa-headphones" aria-hidden="true"></span>Musician Hub</Link>
               <SearchBarContainer />
             </div>
 

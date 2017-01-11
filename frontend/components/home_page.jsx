@@ -29,13 +29,20 @@ class HomePage extends React.Component {
     return (
       <div>
         <div className="video-container">
-          <h1>GET DISCOVERED</h1>
+          <div className="home-page-message">
+            <h1>GET DISCOVERED</h1>
+            <h3>Share your music with your fans</h3>
+            <h3>Find music you love</h3>
+          </div>
           <button onClick={this.signup} className={"create-profile-button"}>Create a Profile</button>
 
           <video src="https://res.cloudinary.com/dndf8vddw/video/upload/v1479756222/v3v7nvs80vx962wryxl9.mp4"
             autoPlay
             loop
             className="video"/>
+        </div>
+        <div className="video-mask">
+
         </div>
 
           <div className={"artist-profiles"}>
