@@ -36,7 +36,7 @@ class HomePage extends React.Component {
           </div>
           <button onClick={this.signup} className={"create-profile-button"}>Create a Profile</button>
 
-          <video src="https://res.cloudinary.com/dndf8vddw/video/upload/v1479756222/v3v7nvs80vx962wryxl9.mp4"
+          <video src="https://s3.amazonaws.com/musicianhubaudio/musicianhubvid.mp4"
             autoPlay
             loop
             className="video"/>
