@@ -39,7 +39,6 @@ class HomePage extends React.Component {
           <video src="https://s3-us-west-1.amazonaws.com/musicianhub/musicianhubvid.mp4"
             autoPlay
             loop
-            preload = "true"
             className="video"/>
         </div>
         <div className="video-mask">
