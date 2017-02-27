@@ -8,8 +8,9 @@ class SampleListItem extends React.Component {
   }
 
   playSong(song, artist) {
-    return (e)=>{
-      this.props.addSong(song, artist);
+    return (e) => {
+      this.props.setToNull();
+      setTimeout(this.props.addSong.bind(this, song, artist), 500);
     };
   }
 

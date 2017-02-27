@@ -23,7 +23,9 @@ export default class App extends React.Component {
     this.displaySongInPlayer = this.displaySongInPlayer.bind(this);
   }
 
+// componentWillReceiveProps() is invoked before a mounted component receives new/updated props.
   componentWillReceiveProps(){
+    //this.props.track_playing is from the previous props
      if (this.props.track_playing){
       this.setState({playing: true});
      }
@@ -79,13 +81,11 @@ export default class App extends React.Component {
   }
 
   render(){
-    console.log("url", this.props.track_player.song_url)
-    console.log("playing", this.props.track_playing)
     return (
       <div className="footer">
         <ReactPlayer url={this.props.track_player.song_url}
           ref={player => { this.player = player; }}
-          playing={this.props.track_playing}
+          playing={this.state.playing}
           width={0}
           height={0}
           hidden={false}

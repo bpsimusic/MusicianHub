@@ -50,7 +50,7 @@ class HomePage extends React.Component {
 
               <ul className={"artist-profiles-container"}>
                 {this.props.artists.map((el, idx)=>{
-                  return <SampleListItem artist={el} key={idx} addSong={this.props.addSongToQueue}/>;
+                  return <SampleListItem artist={el} key={idx} addSong={this.props.addSongToQueue} setToNull={this.props.setToNull}/>;
                 })}
               </ul>
           </div>
