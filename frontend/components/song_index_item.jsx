@@ -33,7 +33,8 @@ class SongIndexItem extends React.Component {
 
   dispatchSong(song, artist){
     return (e) => {
-      this.props.addSong(song, artist);
+      this.props.setToNull();
+      setTimeout(this.props.addSong.bind(this, song, artist), 500);
     };
   }
 
@@ -50,7 +51,7 @@ class SongIndexItem extends React.Component {
             <button onClick={this.dispatchSong(this.props.song, this.props.artist)}
                     className="play-click">Play</button>
           </div>
-          {this.props.edit ? this.deleteButton(this.props.song) : null} 
+          {this.props.edit ? this.deleteButton(this.props.song) : null}
           {this.props.download ? this.downloadButton(this.props.song) : null}
         <br></br>
         </div>

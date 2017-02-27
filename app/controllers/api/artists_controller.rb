@@ -25,7 +25,6 @@ class Api::ArtistsController < ApplicationController
       @artists = Artist.none
     end
     render "api/artists/search"
-
   end
 
   def show

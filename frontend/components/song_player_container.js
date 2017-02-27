@@ -12,7 +12,9 @@ const mapStateToProps = ({track_player})=>({
 const mapDispatchToProps = (dispatch)=>({
 
 });
-
+// 
+// first, it should read null.
+// Then, it should read a specific url.
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(SongPlayer);

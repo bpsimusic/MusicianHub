@@ -17,6 +17,14 @@ export const TrackPlayerReducer = (state = _default, action)=>{
       newState.artist = action.artist;
       newState.playing = true;
       return newState;
+    case Actions.SET_TO_NULL:
+      console.log("in null!");
+      newState = merge({}, state);
+      newState.songs.shift();
+      let dummySong = {song_url: null};
+      newState.songs.push(dummySong);
+      newState.playing = false;
+      return newState;
     default:
       return state;
   }

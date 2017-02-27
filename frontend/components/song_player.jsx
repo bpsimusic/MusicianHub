@@ -11,6 +11,7 @@ export default class App extends React.Component {
     volume: 0.1,
     played: 0,
     loaded: 0,
+    url: null
     };
     this.playPause = this.playPause.bind(this);
     this.stop = this.stop.bind(this);
@@ -22,12 +23,11 @@ export default class App extends React.Component {
     this.displaySongInPlayer = this.displaySongInPlayer.bind(this);
   }
 
-//incoming props playing is true, then setstate to be true.
   componentWillReceiveProps(){
-    if (this.props.track_playing){
-     this.setState({playing: true});
-    }
-  }
+     if (this.props.track_playing){
+      this.setState({playing: true});
+     }
+   }
 
   playPause(){
     this.setState({ playing: !this.state.playing })
@@ -68,6 +68,7 @@ export default class App extends React.Component {
   }
 
   displaySongInPlayer(){
+
     if (this.props.track_player.title===undefined){
       return null;
     }  else {
@@ -78,11 +79,13 @@ export default class App extends React.Component {
   }
 
   render(){
+    console.log("url", this.props.track_player.song_url)
+    console.log("playing", this.props.track_playing)
     return (
       <div className="footer">
         <ReactPlayer url={this.props.track_player.song_url}
           ref={player => { this.player = player; }}
-          playing={this.state.playing}
+          playing={this.props.track_playing}
           width={0}
           height={0}
           hidden={false}

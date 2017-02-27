@@ -13,7 +13,7 @@ class SongIndex extends React.Component {
 
   artistSongsOrCurrentUserSongs(){
     let that = this;
-    
+
     if (this.props.props.currentUser.id === this.props.props.artist.id){
       return (
         this.props.props.currentUser.songs.map(function(el, idx){
@@ -22,6 +22,7 @@ class SongIndex extends React.Component {
             edit={that.props.edit}
             deleteSong={that.props.props.deleteSong}
             addSong = {that.props.props.addSongToQueue}
+            setToNull = {that.props.props.setToNull}
             artist = {that.props.props.artist}/>;
         })
       );
@@ -34,6 +35,7 @@ class SongIndex extends React.Component {
             deleteSong={that.props.props.deleteSong}
             download={true}
             addSong = {that.props.props.addSongToQueue}
+            setToNull = {that.props.props.setToNull}
             artist = {that.props.props.artist}/>;
         })
       );
