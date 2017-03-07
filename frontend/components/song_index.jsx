@@ -13,30 +13,29 @@ class SongIndex extends React.Component {
 
   artistSongsOrCurrentUserSongs(){
     let that = this;
-
-    if (this.props.props.currentUser.id === this.props.props.artist.id){
+    if (this.props.currentUser.id === this.props.artist.id){
       return (
-        this.props.props.currentUser.songs.map(function(el, idx){
+        this.props.currentUser.songs.map(function(el, idx){
           return <SongIndexItem song={el}
             key={idx}
             edit={that.props.edit}
-            deleteSong={that.props.props.deleteSong}
-            addSong = {that.props.props.addSongToQueue}
-            setToNull = {that.props.props.setToNull}
-            artist = {that.props.props.artist}/>;
+            deleteSong={that.props.deleteSong}
+            addSong = {that.props.addSongToQueue}
+            setToNull = {that.props.setToNull}
+            artist = {that.props.artist}/>;
         })
       );
     } else {
       return (
-        this.props.props.artist.songs.map(function(el, idx){
+        this.props.artist.songs.map(function(el, idx){
           return <SongIndexItem song={el}
             key={idx}
             edit={that.props.edit}
-            deleteSong={that.props.props.deleteSong}
+            deleteSong={that.props.deleteSong}
             download={true}
-            addSong = {that.props.props.addSongToQueue}
-            setToNull = {that.props.props.setToNull}
-            artist = {that.props.props.artist}/>;
+            addSong = {that.props.addSongToQueue}
+            setToNull = {that.props.setToNull}
+            artist = {that.props.artist}/>;
         })
       );
     }
@@ -49,9 +48,9 @@ class SongIndex extends React.Component {
   }
 
   uploadNewSongButton(){
-    if (this.props.props.currentUser.id === this.props.props.artist.id){
+    if (this.props.currentUser.id === this.props.artist.id){
       return (
-      <button onClick={this.handleClick(`/artists/${this.props.props.currentUser.id}/newsong`).bind(this)}>Upload New Song</button>
+      <button onClick={this.handleClick(`/artists/${this.props.currentUser.id}/newsong`).bind(this)}>Upload New Song</button>
       );
     } else {
       return null;
@@ -59,8 +58,8 @@ class SongIndex extends React.Component {
   }
   uploadSong(url){
     const song_url = url;
-    const song = {song: {song_url, artist_id: this.props.props.currentUser.id}, artist_id: this.props.props.currentUser.id};
-    this.props.props.newSong(song);
+    const song = {song: {song_url, artist_id: this.props.currentUser.id}, artist_id: this.props.currentUser.id};
+    this.props.newSong(song);
   }
 
 

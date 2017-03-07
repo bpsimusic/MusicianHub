@@ -34,13 +34,14 @@ class SongIndexItem extends React.Component {
   dispatchSong(song, artist){
     return (e) => {
       this.props.setToNull();
-      setTimeout(this.props.addSong.bind(this, song, artist), 500);
+      setTimeout(this.props.addSong.bind(this, song, artist), 100);
     };
   }
 
 
 
   render(){
+
     return (
       <div className="song-item">
         <label className="title">{this.props.song.title} &nbsp;

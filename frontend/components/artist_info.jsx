@@ -1,6 +1,7 @@
 import React from 'react';
 import UploadButton from './upload_button';
 import SongIndex from './song_index';
+import SongIndexContainer from './song_index_container';
 
 
 class ArtistInfo extends React.Component {
@@ -197,7 +198,7 @@ class ArtistInfo extends React.Component {
                 &nbsp;
                 {this.state.editSongs ? this.cancelEditSongs() : null}
               </header>
-              <SongIndex props={this.props} edit={this.state.editSongs}/>
+              <SongIndexContainer />
             </div>
             {this.props.children}
           </div>

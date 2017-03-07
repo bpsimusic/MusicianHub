@@ -7,7 +7,7 @@ const App = ({children}) => (
     <GreetingContainer />
 
     {children}
-    
+
     <SongPlayerContainer />
   </div>
 );
