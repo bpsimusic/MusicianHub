@@ -2,13 +2,16 @@ import React from 'react';
 import {Link, withRouter} from 'react-router';
 import SearchBarContainer from './search_bar_container';
 import Modal from 'react-modal';
+import styling from './style_modal';
 
 class Greeting extends React.Component {
   constructor(props){
     super(props);
-    this.state = {modalIsOpen: false};
+    this.state = {modalIsOpen: false, formType: "", username: "", password: ""};
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.login = this.login.bind(this);
+    this.signup = this.signup.bind(this);
   }
 
   componentWillMount(){
@@ -19,8 +22,50 @@ class Greeting extends React.Component {
     this.setState({modalIsOpen: false});
   }
 
-  openModal(){
-    this.setState({modalIsOpen: true});
+  // handleSubmit(e){
+  //   e.preventDefault();
+  //   const artist = this.state;
+  //
+  //   //question about this syntax.
+  //   //You're processing the {artist: {username: "", password: ""}}
+  //   this.props.processForm({artist});
+  // }
+
+  login(e){
+    e.preventDefault();
+    const artist = this.state;
+    this.props.login({artist});
+  }
+
+  openModal(event){
+    return (event)=>{
+      this.setState({modalIsOpen: true, formType: event.currentTarget.innerText});
+    };
+  }
+
+  renderErrors() {
+    return (
+      <ul className="errors-list">
+          {this.props.errors.map((error, i) => (
+            <li key={i}
+                className="errors">
+              {error}
+            </li>
+          ))}
+      </ul>
+    );
+  }
+
+  signup(e){
+    e.preventDefault();
+    const artist = this.state;
+    this.props.signup({artist});
+  }
+
+  update(field){
+    return e => this.setState({
+      [field]: e.currentTarget.value
+    });
   }
 
   render(){
@@ -56,43 +101,92 @@ class Greeting extends React.Component {
                 </div>
                 <nav className="nav-container">
                   <ul className="list-container">
-                    <li><button onClick={this.openModal}>Sign Up</button></li>
+                    <li><button onClick={this.openModal(event)}>Sign Up</button></li>
                         <Modal
                           isOpen={this.state.modalIsOpen}
-
+                          style={styling}
                           onRequestClose={this.closeModal}
                           contentLabel="Example Modal"
                           >
-                        <h2 ref="subtitle">Hello</h2>
-                        <button onClick={this.closeModal}>close</button>
-                        <div>I am a modal</div>
-                        <form>
-                          <input />
-                          <button>tab navigation</button>
-                          <button>stays</button>
-                          <button>inside</button>
-                          <button>the modal</button>
-                        </form>
+                          <div className="form-container">
+                            <h1>{this.state.formType == "Sign Up" ? "Sign Up" : "Login"}</h1>
+                            <form onSubmit={this.signup}>
+
+                              <label>Username
+                                <br></br>
+                                <input type="text"
+                                  value={this.state.username}
+                                  onChange={this.update("username")}
+                                  className = {"sessionForm-input"}
+                                  size="28"/>
+                              </label>
+                              <br></br>
+                              <br></br>
+                              <label for="password">Password</label>
+                              <br></br>
+
+                              <input id="password" type="password"
+                                value={this.state.password}
+                                onChange={this.update("password")}
+                                className = {"sessionForm-input"}
+                                size="28"/>
+                              <br></br>
+
+                              <br></br>
+                              <button className={"entry-button"}>
+                                  {this.state.formType}
+                              </button>
+                            </form>
+
+                              <button className={"demo"} onClick={this.props.demologin}>
+                                Demo Login
+                              </button>
+                            {this.renderErrors()}
+                          </div>
                       </Modal>
+                      <li><button onClick={this.openModal(event)}>Log In</button></li>
+                        <Modal
+                          isOpen={this.state.modalIsOpen}
+                          style={styling}
+                          onRequestClose={this.closeModal}
+                          contentLabel="Example Modal"
+                          >
+                          <div className="form-container">
+                            <h1>{this.state.formType == "Sign Up" ? "Sign Up" : "Login"}</h1>
+                            <form onSubmit={this.signup}>
 
-                    <li><button onClick={this.openModal}>Login</button></li>
-                      <Modal
-                        isOpen={this.state.modalIsOpen}
+                              <label>Username
+                                <br></br>
+                                <input type="text"
+                                  value={this.state.username}
+                                  onChange={this.update("username")}
+                                  className = {"sessionForm-input"}
+                                  size="28"/>
+                              </label>
+                              <br></br>
+                              <br></br>
+                              <label for="password">Password</label>
+                              <br></br>
 
-                        onRequestClose={this.closeModal}
-                        contentLabel="Example Modal"
-                        >
-                      <h2 ref="subtitle">Hello</h2>
-                      <button onClick={this.closeModal}>close</button>
-                      <div>I am a modal</div>
-                      <form>
-                        <input />
-                        <button>tab navigation</button>
-                        <button>stays</button>
-                        <button>inside</button>
-                        <button>the modal</button>
-                      </form>
-                    </Modal>
+                              <input id="password" type="password"
+                                value={this.state.password}
+                                onChange={this.update("password")}
+                                className = {"sessionForm-input"}
+                                size="28"/>
+                              <br></br>
+
+                              <br></br>
+                              <button className={"entry-button"}>
+                                  {this.state.formType}
+                              </button>
+                            </form>
+
+                              <button className={"demo"} onClick={this.props.demologin}>
+                                Demo Login
+                              </button>
+                            {this.renderErrors()}
+                          </div>
+                      </Modal>
                   </ul>
                 </nav>
               </header>
