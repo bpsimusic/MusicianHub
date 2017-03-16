@@ -5,6 +5,7 @@ import {addSongToQueue, setNull} from '../actions/track_player_actions.js';
 
 const mapStateToProps = ({sample, session}) => ({
   artists: sample.artists,
+  currentUser: session.currentUser,
   loggedIn: session.currentUser
 });
 

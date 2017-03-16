@@ -3,7 +3,7 @@ class Api::SessionsController < ApplicationController
   end
 
   def create
-
+    
     @artist = Artist.find_by_credentials(
     session_params[:username], session_params[:password]
     )

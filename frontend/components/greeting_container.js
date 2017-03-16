@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import Greeting from './greeting';
-import {login,logout,signup} from '../actions/session_actions';
+import {login,logout,signup,demologin} from '../actions/session_actions';
 
 
 const mapStateToProps = ({session}) => ({
@@ -11,7 +11,7 @@ const mapStateToProps = ({session}) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-  demologin: ()=>dispatch({type: "LOGIN", artist: {artist: {username: 'guest', password: 123456}}}),
+  demologin: (user)=>dispatch(demologin(user)),
   login: (artist)=>dispatch(login(artist)),
   logout: ()=>dispatch(logout()),
   signup: (artist)=>dispatch(signup(artist))

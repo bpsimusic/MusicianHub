@@ -41,14 +41,12 @@ export const deleteSong = (song, success, error) => {
 
 
 
-export const login = (artist, success, error) => {
-  $.ajax({url: "/api/session",
+export const login = (artist) => {
+  return $.ajax({url: "/api/session",
   type: "post",
   data: artist,
-  dataType: 'json',
-  success,
-  error
-})
+  dataType: 'json'
+});
 }
 
 export const logout = (success, error) => {

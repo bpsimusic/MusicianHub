@@ -10,6 +10,7 @@ class Greeting extends React.Component {
     this.state = {modalIsOpen: false, formType: "", username: "", password: ""};
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.demologin = this.demologin.bind(this);
     this.login = this.login.bind(this);
     this.signup = this.signup.bind(this);
   }
@@ -18,18 +19,25 @@ class Greeting extends React.Component {
     Modal.setAppElement('body');
   }
 
+  componentWillUnmount(){
+    this.closeModal();
+  }
+
   closeModal(){
     this.setState({modalIsOpen: false});
   }
-
-  // handleSubmit(e){
-  //   e.preventDefault();
-  //   const artist = this.state;
-  //
-  //   //question about this syntax.
-  //   //You're processing the {artist: {username: "", password: ""}}
-  //   this.props.processForm({artist});
-  // }
+// {type: "LOGIN", artist: {username: 'guest', password: 123456}}
+  demologin(){
+    this.props.demologin({artist: {username: 'guest', password: 123456}})
+    .then(
+      /*callback gets executed after demologin. artist is a payload that
+      contains the currentUser, and a type (RECEIVECURRENTUSER).
+      It's an action, from session_actions.js dispatched on line 37.*/
+      (artist) => {
+          this.closeModal();
+          this.props.router.push(`/artists/${artist.currentUser.id}`);
+        });
+  }
 
   login(e){
     e.preventDefault();
@@ -37,7 +45,7 @@ class Greeting extends React.Component {
     this.props.login({artist});
   }
 
-  openModal(event){
+  openModal(){
     return (event)=>{
       this.setState({modalIsOpen: true, formType: event.currentTarget.innerText});
     };
@@ -58,7 +66,7 @@ class Greeting extends React.Component {
 
   signup(e){
     e.preventDefault();
-    const artist = this.state;
+    const artist = {username: this.state.username, password: this.state.password};
     this.props.signup({artist});
   }
 
@@ -101,7 +109,7 @@ class Greeting extends React.Component {
                 </div>
                 <nav className="nav-container">
                   <ul className="list-container">
-                    <li><button onClick={this.openModal(event)}>Sign Up</button></li>
+                    <li><button onClick={this.openModal()}>Sign Up</button></li>
                         <Modal
                           isOpen={this.state.modalIsOpen}
                           style={styling}
@@ -122,7 +130,7 @@ class Greeting extends React.Component {
                               </label>
                               <br></br>
                               <br></br>
-                              <label for="password">Password</label>
+                              <label htmlFor="password">Password</label>
                               <br></br>
 
                               <input id="password" type="password"
@@ -138,13 +146,13 @@ class Greeting extends React.Component {
                               </button>
                             </form>
 
-                              <button className={"demo"} onClick={this.props.demologin}>
+                              <button className={"demo"} onClick={this.demologin}>
                                 Demo Login
                               </button>
                             {this.renderErrors()}
                           </div>
                       </Modal>
-                      <li><button onClick={this.openModal(event)}>Log In</button></li>
+                      <li><button onClick={this.openModal()}>Log In</button></li>
                         <Modal
                           isOpen={this.state.modalIsOpen}
                           style={styling}
@@ -153,7 +161,7 @@ class Greeting extends React.Component {
                           >
                           <div className="form-container">
                             <h1>{this.state.formType == "Sign Up" ? "Sign Up" : "Login"}</h1>
-                            <form onSubmit={this.signup}>
+                            <form onSubmit={this.login}>
 
                               <label>Username
                                 <br></br>
@@ -165,7 +173,7 @@ class Greeting extends React.Component {
                               </label>
                               <br></br>
                               <br></br>
-                              <label for="password">Password</label>
+                              <label htmlFor="password">Password</label>
                               <br></br>
 
                               <input id="password" type="password"
@@ -181,7 +189,7 @@ class Greeting extends React.Component {
                               </button>
                             </form>
 
-                              <button className={"demo"} onClick={this.props.demologin}>
+                              <button className={"demo"} onClick={this.demologin}>
                                 Demo Login
                               </button>
                             {this.renderErrors()}
