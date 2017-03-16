@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import Greeting from './greeting';
-import {login,logout,signup,demologin} from '../actions/session_actions';
+import {CLEAR_ERRORS,login,logout,signup,demologin} from '../actions/session_actions';
 
 
 const mapStateToProps = ({session}) => ({
@@ -11,6 +11,7 @@ const mapStateToProps = ({session}) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return ({
+  clearErrors: ()=>dispatch({type: CLEAR_ERRORS}),
   demologin: (user)=>dispatch(demologin(user)),
   login: (artist)=>dispatch(login(artist)),
   logout: ()=>dispatch(logout()),

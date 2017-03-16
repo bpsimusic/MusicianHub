@@ -24,6 +24,7 @@ class Greeting extends React.Component {
   }
 
   closeModal(){
+    this.props.clearErrors();
     this.setState({modalIsOpen: false});
   }
 // {type: "LOGIN", artist: {username: 'guest', password: 123456}}
@@ -41,8 +42,12 @@ class Greeting extends React.Component {
 
   login(e){
     e.preventDefault();
-    const artist = this.state;
-    this.props.login({artist});
+    const artist = {username: this.state.username, password: this.state.password};
+    this.props.login({artist})
+    .then((user) => {
+        this.closeModal();
+        this.props.router.push(`/artists/${user.currentUser.id}`);
+      });
   }
 
   openModal(){

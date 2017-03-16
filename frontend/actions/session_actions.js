@@ -19,26 +19,22 @@ export const CLEAR_ERRORS = "CLEARERRORS";
 //       err => dispatch(receiveErrors(err.responseJSON)));
 // };
 //
-// export const login = (user) => dispatch => {
-//   return APIUtil.login(user)
-//     .then(res => dispatch(receiveCurrentUser(res)),
-//       err => dispatch(receiveErrors(err.responseJSON)));
-// };
-//
-// export const logout = () => dispatch => {
-//   return APIUtil.logout()
-//     .then(res => dispatch(receiveCurrentUser(null)));
-// };
+export const login = (user) => dispatch => {
+  return APIUtil.login(user)
+    .then(artist => dispatch(receiveCurrentUser(artist)),
+      err => dispatch(receiveErrors(err.responseJSON)));
+};
+
 
 export const demologin = (user) => dispatch => {
   return APIUtil.login(user)
     .then(artist => dispatch(receiveCurrentUser(artist)));
 };
 
-export const login = (artist) => ({
-  type: LOGIN,
-  artist
-})
+// export const login = (artist) => ({
+//   type: LOGIN,
+//   artist
+// })
 export const logout = () => ({
   type: LOGOUT
 })
