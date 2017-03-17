@@ -1,11 +1,6 @@
 
 
-.fa-headphones {
-  font-size: 35px !important;
-  margin-right: 8px;
-  position:relative;
-  top: 3px;
-}
+
 
 .header {
   background: black;
@@ -31,9 +26,23 @@
   align-items: center;
 }
 
+.headphones {
+  width: 40px;
+  position: relative;
+  height: 40px;
+  right: 10px;
+  top: 5px;
+}
+
 .home-page-revisit {
   position: relative;
   bottom: 3px;
+}
+
+.musician-hub {
+  display: inline-block;
+  position: relative;
+  bottom: 5px;
 }
 
 .nav-container {

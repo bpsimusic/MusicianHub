@@ -43,7 +43,7 @@ class Greeting extends React.Component {
             <header className="header-container">
               <div className="header-logo">
 
-                <Link to="/" className="home-page-revisit"><span className="fa fa-headphones" aria-hidden="true"></span>Musician Hub</Link>
+                <Link to="/" className="home-page-revisit"><img src="../../app/assets/images/white-headphones.png"/>Musician Hub</Link>
                 <SearchBarContainer />
               </div>
 
@@ -63,7 +63,11 @@ class Greeting extends React.Component {
             <header className="header">
               <header className="header-container">
                 <div className="header-logo">
-                  <Link to="/" className="home-page-revisit"><span className="fa fa-headphones" aria-hidden="true"></span>Musician Hub</Link>
+                  <Link to="/" className="home-page-revisit">
+                    <img className="headphones" src=
+                    "http://res.cloudinary.com/dndf8vddw/image/upload/v1489783203/whiteheadphones_cz8yi8.png"/>
+                  <div className="musician-hub">Musician Hub</div>
+                  </Link>
                   <SearchBarContainer />
                 </div>
                 <nav className="nav-container">
