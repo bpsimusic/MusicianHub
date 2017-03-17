@@ -13,12 +13,12 @@ export const RECEIVE_NEW_SONG = "RECEIVENEWSONG";
 export const CLEAR_ERRORS = "CLEARERRORS";
 
 
-// export const signup = (user) => dispatch => {
-//   return APIUtil.signup(user)
-//     .then(res => dispatch(receiveCurrentUser(res)),
-//       err => dispatch(receiveErrors(err.responseJSON)));
-// };
-//
+export const signup = (user) => dispatch => {
+  return APIUtil.signup(user)
+    .then(res => dispatch(receiveCurrentUser(res)),
+      err => dispatch(receiveErrors(err.responseJSON)));
+};
+
 export const login = (user) => dispatch => {
   return APIUtil.login(user)
     .then(artist => dispatch(receiveCurrentUser(artist)),
@@ -31,17 +31,11 @@ export const demologin = (user) => dispatch => {
     .then(artist => dispatch(receiveCurrentUser(artist)));
 };
 
-// export const login = (artist) => ({
-//   type: LOGIN,
-//   artist
-// })
+
 export const logout = () => ({
   type: LOGOUT
 })
-export const signup = (artist) => ({
-  type: SIGNUP,
-  artist
-})
+
 export const receiveCurrentUser = (currentUser) => ({
   type: RECEIVE_CURRENT_USER,
   currentUser

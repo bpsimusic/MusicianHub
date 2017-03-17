@@ -1,13 +1,5 @@
 
-export const signup = (artist, success, error) => {
-  $.ajax({url: "/api/artists",
-  type: "post",
-  data: artist,
-  dataType: 'json',
-  success,
-  error
-});
-};
+
 
 export const update = (artist, success, error) => {
   $.ajax({url: `/api/artists/${artist.id}`,
@@ -38,6 +30,14 @@ export const deleteSong = (song, success, error) => {
 });
 };
 
+
+export const signup = (artist) => {
+  return $.ajax({url: "/api/artists",
+  type: "post",
+  data: artist,
+  dataType: 'json'
+});
+};
 
 
 

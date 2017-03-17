@@ -10,12 +10,10 @@ const mapStateToProps = ({session}) => ({
 });
 
 const mapDispatchToProps = (dispatch) => {
+
   return ({
-  clearErrors: ()=>dispatch({type: CLEAR_ERRORS}),
-  demologin: (user)=>dispatch(demologin(user)),
-  login: (artist)=>dispatch(login(artist)),
-  logout: ()=>dispatch(logout()),
-  signup: (artist)=>dispatch(signup(artist))
+    clearErrors: ()=>dispatch({type: CLEAR_ERRORS}),
+    logout: ()=>dispatch(logout())
   });
 };
 
