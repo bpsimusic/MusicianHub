@@ -68,8 +68,8 @@ class Greeting extends React.Component {
                 </div>
                 <nav className="nav-container">
                   <ul className="list-container">
-                    <li><button onClick={this.openModal()}>Sign Up</button></li>
-                    <li><button onClick={this.openModal()}>Log In</button></li>
+                    <li><a onClick={this.openModal()}>Sign Up</a></li>
+                    <li><a onClick={this.openModal()}>Log In</a></li>
                       <Modal
                           isOpen={this.state.modalIsOpen}
                           style={styling}

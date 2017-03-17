@@ -15,36 +15,59 @@
   position: relative;
   right: 40px;
   margin-bottom: 4px;
+  top: 15px;
 }
 
 .errors-list {
   font-size: 14px;
   color: $red;
   position: relative;
-  margin-bottom: 0px;
-
+  top: 10px;
+  margin-bottom: 30px;
 }
 
 .form-container {
-  padding: 20px;
-  border: solid #cecbb3 1px;
-  background: #f1f4f4;
-  box-sizing: inherit;
-  font-size: 22px;
+    padding: 20px;
+    border: solid black 1px;
+    background: #f1f4f4;
+    box-sizing: inherit;
+    font-size: 22px;
+    width: 350px;
 }
 
 .form-container form{
   margin-top: 20px;
 }
 
+.form-container h1 {
+  height: 25px;
+  text-align: center;
+}
+
 .form-container input{
   font-size: 18px;
   margin-top: 10px;
+  width: 344px;
+}
+
+.list-container a {
+  cursor: pointer;
 }
 
 .sessionForm-input {
   max-width: 100%;
 
+}
+
+.session-form-swap-text {
+  position: relative;
+  top: 20px;
+  font-size: 15px;
+}
+.session-form-swap-text a{
+  text-decoration: underline;
+  color: blue;
+  cursor: pointer;
 }
 
 .splash-image {

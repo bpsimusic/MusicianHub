@@ -118,8 +118,8 @@ class AuthModal extends React.Component {
           <button className={"demo"} onClick={this.demologin}>
             Demo Login
           </button>
-          <div className='login-change-text'>
-            {introText} <a className="login-link" onClick={() => this.swapForm()}>{otherFormType} instead!</a>
+          <div className='session-form-swap-text'>
+            {introText}  <a className="login-link" onClick={() => this.swapForm()}>{otherFormType} instead!</a>
           </div>
         {this.renderErrors()}
       </div>
