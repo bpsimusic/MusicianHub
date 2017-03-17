@@ -21,7 +21,7 @@ class HomePage extends React.Component {
     if (this.props.loggedIn){
       this.props.router.push(`/artists/${this.props.loggedIn.id}`);
     } else {
-      this.props.router.push("/signup");
+
     }
   }
 
@@ -34,7 +34,6 @@ class HomePage extends React.Component {
             <h3>Share your music with your fans</h3>
             <h3>Find music you love</h3>
           </div>
-          <button onClick={this.signup} className={"create-profile-button"}>Create a Profile</button>
 
           <video src="https://s3-us-west-1.amazonaws.com/musicianhub/musicianhubvid.mp4"
             autoPlay
