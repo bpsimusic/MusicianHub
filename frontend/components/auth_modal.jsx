@@ -4,12 +4,13 @@ import {Link, withRouter} from 'react-router';
 class AuthModal extends React.Component {
   constructor(props){
     super(props);
-    this.state = {username: "", password: ""};
+    this.state = {formType: this.props.formType, username: "", password: ""};
     this.demologin = this.demologin.bind(this);
     this.login = this.login.bind(this);
     this.processForm = this.processForm.bind(this);
     this.signup = this.signup.bind(this);
     this.formType = this.props.formType;
+    this.swapForm = this.swapForm.bind(this);
   }
 
   demologin(){
@@ -33,7 +34,7 @@ class AuthModal extends React.Component {
   }
 
   processForm(){
-    if(this.props.formType === "Log In"){
+    if(this.state.formType === "Log In"){
       return this.login;
     } else {
       return this.signup;
@@ -62,6 +63,15 @@ class AuthModal extends React.Component {
       });
   }
 
+  swapForm() {
+    this.props.clearErrors();
+  		if (this.state.formType === "Log In") {
+        this.setState({formType: 'Sign Up'});
+  		} else {
+  			this.setState({formType: 'Log In'});
+      }
+  }
+
   update(field){
 
     return e => {
@@ -71,9 +81,12 @@ class AuthModal extends React.Component {
   }
 
   render(){
+    const introText = this.state.formType  === 'Log In' ? 'Don\'t have an account?' : 'Already have an account?';
+    const otherFormType = this.state.formType === 'Log In' ? 'Create an account' : 'Login';
+
     return (
       <div className="form-container">
-        <h1>{this.props.formType === "Log In" ? "Login" : "Sign Up"}</h1>
+        <h1>{this.state.formType === "Log In" ? "Login" : "Sign Up"}</h1>
         <form onSubmit={this.processForm()}>
 
           <label>Username
@@ -98,13 +111,16 @@ class AuthModal extends React.Component {
 
           <br></br>
           <button className={"entry-button"}>
-              {this.props.formType}
+              {this.state.formType}
           </button>
         </form>
 
           <button className={"demo"} onClick={this.demologin}>
             Demo Login
           </button>
+          <div className='login-change-text'>
+            {introText} <a className="login-link" onClick={() => this.swapForm()}>{otherFormType} instead!</a>
+          </div>
         {this.renderErrors()}
       </div>
     );

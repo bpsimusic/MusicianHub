@@ -3,7 +3,6 @@ import {Provider} from 'react-redux';
 import {Router, hashHistory, IndexRoute, Route} from 'react-router';
 import App from './app';
 import GreetingContainer from './greeting_container';
-import SessionFormContainer from './session_form_container';
 import ArtistInfoContainer from './artist_info_container';
 import SongIndexContainer from './song_index_container';
 import SongFormContainer from './song_form_container';
@@ -34,8 +33,6 @@ const Root = ({store}) => {
     <Router history={hashHistory}>
       <Route path="/" component={App}>
         <IndexRoute component={HomePageContainer}/>
-        <Route path="login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
-        <Route path="signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
         <Route path="artists/:artistId" component={ArtistInfoContainer} onEnter={_fetchArtist} onLeave={_clearArtist}>
           <Route path="newsong" component={SongFormContainer} />
         </Route>
