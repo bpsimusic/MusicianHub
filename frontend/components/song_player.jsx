@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactPlayer from 'react-player';
 import {Link} from 'react-router';
+import Duration from './duration';
 
 
 export default class App extends React.Component {
@@ -8,6 +9,7 @@ export default class App extends React.Component {
     super(props);
     this.state = {
     playing: true,
+    duration: 0,
     volume: 0.1,
     played: 0,
     loaded: 0,
@@ -21,6 +23,8 @@ export default class App extends React.Component {
     this.onSeekMouseUp = this.onSeekMouseUp.bind(this);
     this.onProgress = this.onProgress.bind(this);
     this.displaySongInPlayer = this.displaySongInPlayer.bind(this);
+    this.displaySongInfo = this.displaySongInfo.bind(this);
+    this.verticalSlider = this.verticalSlider.bind(this);
   }
 
 // componentWillReceiveProps() is invoked before a mounted component receives new/updated props.
@@ -29,6 +33,40 @@ export default class App extends React.Component {
      if (this.props.track_playing){
       this.setState({playing: true});
      }
+   }
+
+   displaySongInPlayer(){
+
+     if (this.props.track_player.title===undefined){
+       return null;
+     }  else {
+       return (
+         `: ${this.props.track_player.title}`
+       );
+     }
+   }
+
+   displaySongInfo(){
+     if(this.props.track_player_artist.image_url == undefined){
+       return null;
+     } else {
+       return (<section className={"artist-info-section"}>
+                 <Link to={`/artists/${this.props.track_player_artist.id}`}>
+                    <img src={this.props.track_player_artist.image_url}
+                       className={"small-artist-image"} />;
+                  </Link>
+
+                   <Link to={`/artists/${this.props.track_player_artist.id}`}
+                     className={"link-to-artist"}>
+                     <div className="song-description">
+                        <div>{this.props.track_player_artist.name}</div>
+
+                        <div>{this.props.track_player.title}</div>
+                      </div>
+                  </Link>
+              </section>
+        );
+      }
    }
 
   playPause(){
@@ -69,18 +107,22 @@ export default class App extends React.Component {
     );
   }
 
-  displaySongInPlayer(){
 
-    if (this.props.track_player.title===undefined){
-      return null;
-    }  else {
-      return (
-        `: ${this.props.track_player.title}`
-      );
+
+
+
+  verticalSlider(){
+    let sliderContainer = document.querySelector(".volume-slider-container")
+    if (sliderContainer.classList.contains("visible")){
+      sliderContainer.classList.remove("visible")
+    } else {
+      sliderContainer.classList.add("visible");
     }
   }
 
   render(){
+
+    const {duration, played} = this.state;
     return (
       <div className="footer">
         <ReactPlayer url={this.props.track_player.song_url}
@@ -92,37 +134,35 @@ export default class App extends React.Component {
           className={"sound-player"}
           volume={this.state.volume}
           onProgress={this.onProgress}
+          onDuration={duration => this.setState({ duration })}
         />
-      <section className="song-controls group">
-        <button className={"play-button"} onClick={this.playPause}>{this.state.playing ? this.pause() : this.play()}</button>
+      <div className="song-display-container">
+          <section className="song-controls group">
+            <button className={"play-button"} onClick={this.playPause}>{this.state.playing ? this.pause() : this.play()}</button>
 
-          <label className={"song-slider"}>Seek <br></br>
-            <input type='range' min={0} max={1} step='any'
-                       value={this.state.played}
-                       onMouseDown={this.onSeekMouseDown}
-                       onChange={this.onSeekChange}
-                       onMouseUp={this.onSeekMouseUp}
-                       className={"input-slider"}/>
-          </label>
+                <input type='range' min={0} max={1} step='any'
+                           value={this.state.played}
+                           onMouseDown={this.onSeekMouseDown}
+                           onChange={this.onSeekChange}
+                           onMouseUp={this.onSeekMouseUp}
+                           className={"input-slider"}/>
+                  <div className="elapsed">
+                     <Duration seconds={duration * played} /> / <Duration seconds={duration} />
+                   </div>
 
-          <label className={"song-slider"}> Volume <br></br>
-            <input type="range" min={0} max={1} step='any'
-                value={this.state.volume}
-               onChange={this.setVolume}
-               className={"input-slider"}/>
-          </label>
-      </section>
-        <section className={"artist-info-section"}>
-          <Link to={`/artists/${this.props.track_player_artist.id}`}>
-          <img src={this.props.track_player_artist.image_url}
+                      <div className="fa fa-volume-up" onMouseOver={this.verticalSlider} onMouseOut={this.verticalSlider}>
+                        <div className={"volume-slider-container"}>
 
-               className={"small-artist-image"}></img></Link>
-               <Link to={`/artists/${this.props.track_player_artist.id}`}
-                 className={"link-to-artist"}>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{this.props.track_player_artist.name}</Link>
-          <Link to={`/artists/${this.props.track_player_artist.id}`}
-            className={"link-to-artist"}>{this.displaySongInPlayer()}</Link>
-        </section>
+                          <input type="range" min={0} max={1} step='any'
+                              value={this.state.volume}
+                             onChange={this.setVolume}
+
+                             className={"volume-slider"}/>
+                       </div>
+                      </div>
+          </section>
+          {this.displaySongInfo()}
+        </div>
       </div>
     );
   }

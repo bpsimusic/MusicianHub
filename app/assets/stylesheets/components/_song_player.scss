@@ -1,56 +1,78 @@
-.link-to-artist:hover {
-  color: black;
+
+.artist-info-section {
+  position: relative;
+  width: 45%;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
-.link-to-artist {
-  padding-top: 26px;
+.artist-info-section a {
+  width: 70px;
 }
 
+
+.elapsed {
+  display: block;
+  position: relative;
+  font-size: 14px;
+  width: 67px;
+}
 
 
 .footer {
-  background: white;
   position: fixed;
   height: 70px;
   left: 0;
   right: 0;
   bottom: 0;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px;
+  background-color: #f1f4f4;
 }
 
-.song-controls {
-  display: flex;
-  align-items: center;
-  width: 400px;
-  height: 100%;
-  float: left;
+.fa-volume-up {
+  position: relative;
+  left: 50px;
+  font-size: 23px !important;
 }
 
-.artist-info-section {
-  position: relative;
-  left: 30px;
-  height: 100%;
+
+.link-to-artist {
+  flex: 1;
   display: flex;
+  justify-content: space-around;
   align-items: center;
-  position: relative;
 }
+
+.link-to-artist:hover {
+  color: black;
+}
+
+
+
 
 
 
 .play-button {
-  background: $mediumblue;
   height: 100%;
   width: 70px;
+  color: black;
+  background: #f1f4f4;
 }
 
 .play-button:focus {
   outline: none;
+  background: #f1f4f4;
+}
+
+.play-button:hover {
+  background: #f1f4f4;
 }
 
 .input-slider {
   position: relative;
-  top: 2px;
-  margin: 0px;
+  margin-left: 50px;
+  margin-right: 40px;
 }
 
 
@@ -61,11 +83,69 @@
 }
 
 .small-artist-image {
-  width: auto;
+  width: 70px;
   height: 100%;
   border: none;
 }
 
+.song-display-container {
+  width: 75%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  justify-content:space-between;
+}
+
+.song-controls {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  float: left;
+  position: relative;
+}
+
+.song-description {
+  text-align: center;
+}
 .song-slider {
   margin-left: 20px;
+}
+
+input[type='range'].input-slider {
+    -webkit-appearance: none !important;
+    background: #cccccc;
+    height: 2px;
+    width: 180px;
+    margin-left: 50px;
+    margin-right: 20px;
+}
+input[type='range'].input-slider:focus {
+    outline: 0;
+}
+input[type='range'].input-slider::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    background: grey;
+    height:8px;
+    width:8px;
+    border-radius: 8px;
+}
+
+.volume-slider-container {
+   display:none;
+   border-radius: 20px;
+   position: absolute;
+   transform: rotate(270deg);
+   right: 0px;
+   left: -62px;
+   background: #f1f4f4;
+   width: 140px;
+   bottom: 80px;
+}
+
+.volume-slider-container:hover{
+  display:block;
+}
+
+.volume-slider-container.visible {
+   display: block;
 }
