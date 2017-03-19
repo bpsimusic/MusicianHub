@@ -6,7 +6,8 @@ const styling =
     left              : 0,
     right             : 0,
     bottom            : 0,
-    backgroundColor   : 'rgba(255, 255, 255, 0.75)'
+    backgroundColor   : 'rgba(255, 255, 255, 0.75)',
+
   },
   content : {
     position                   : 'absolute',
@@ -18,10 +19,11 @@ const styling =
     WebkitOverflowScrolling    : 'touch',
     borderRadius               : '4px',
     outline                    : 'none',
-    width                      : '350px',
+    width                      : '392px',
     height: '300px',
     padding: '0px',
     top                        : '10%',
+    border: '0px',
   }
 };
 
