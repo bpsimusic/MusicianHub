@@ -7,6 +7,7 @@ class HomePage extends React.Component {
   constructor(props){
     super(props);
     this.signup = this.signup.bind(this);
+    this.videoMask = this.videoMask.bind(this);
   }
 
   componentWillMount(){
@@ -25,6 +26,11 @@ class HomePage extends React.Component {
     }
   }
 
+  videoMask(){
+    let mask = document.querySelector(".video-mask");
+    mask.style.background  = "rgba(0,0,0,0.5)";
+  }
+
   render(){
     return (
       <div>
@@ -38,7 +44,8 @@ class HomePage extends React.Component {
           <video src="https://s3-us-west-1.amazonaws.com/musicianhub/musicianhubvid.mp4"
             autoPlay
             loop
-            className="video"/>
+            className="video"
+            onPlay = {this.videoMask}/>
         </div>
         <div className="video-mask">
 
