@@ -1,6 +1,7 @@
 import {connect} from 'react-redux';
 import SongPlayer from './song_player';
 import {login, signup} from '../actions/session_actions';
+import {requestArtist} from '../actions/artist_actions';
 
 const mapStateToProps = ({track_player})=>({
   track_player: track_player.songs[0],
@@ -10,11 +11,9 @@ const mapStateToProps = ({track_player})=>({
 
 
 const mapDispatchToProps = (dispatch)=>({
-
+  requestSampleSong: (id)=>{dispatch(requestSampleSong(id));}
 });
-// 
-// first, it should read null.
-// Then, it should read a specific url.
+
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(SongPlayer);

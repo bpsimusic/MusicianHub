@@ -6,6 +6,15 @@ export const addSongToQueue = (song, artist) => ({
   song,
   artist
 });
+
+
+export const requestSampleSong = (song, artist) => ({
+  type: ADD_TO_QUEUE,
+  song,
+  artist
+});
+
+
 export const setNull = () => ({
   type: SET_TO_NULL
 });

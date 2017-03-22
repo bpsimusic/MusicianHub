@@ -36,7 +36,6 @@ export default class App extends React.Component {
    }
 
    displaySongInPlayer(){
-
      if (this.props.track_player.title===undefined){
        return null;
      }  else {
@@ -48,7 +47,8 @@ export default class App extends React.Component {
 
    displaySongInfo(){
      if(this.props.track_player_artist.image_url == undefined){
-       return null;
+         let randomNumber = Math.floor(Math.random() * 20 + 1);
+         this.props.requestSampleSong(randomNumber);
      } else {
        return (<section className={"artist-info-section"}>
                  <Link to={`/artists/${this.props.track_player_artist.id}`}>
