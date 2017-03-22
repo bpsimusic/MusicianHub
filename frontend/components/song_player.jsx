@@ -8,7 +8,7 @@ export default class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-    playing: true,
+    playing: false,
     duration: 0,
     volume: 0.1,
     played: 0,
