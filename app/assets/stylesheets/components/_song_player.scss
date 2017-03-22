@@ -36,6 +36,19 @@
   font-size: 23px !important;
 }
 
+.fa-volume-up:hover {
+  cursor: pointer;
+}
+
+.input-slider {
+  position: relative;
+  margin-left: 50px;
+  margin-right: 40px;
+}
+
+.input-slider:hover {
+  cursor: pointer;
+}
 
 .link-to-artist {
   flex: 1;
@@ -69,11 +82,7 @@
   background: #f1f4f4;
 }
 
-.input-slider {
-  position: relative;
-  margin-left: 50px;
-  margin-right: 40px;
-}
+
 
 
 
@@ -144,6 +153,10 @@ input[type='range'].input-slider::-webkit-slider-thumb {
 
 .volume-slider-container:hover{
   display:block;
+}
+
+.volume-slider-container input:hover {
+  cursor: pointer;
 }
 
 .volume-slider-container.visible {
