@@ -22,7 +22,6 @@ export default class App extends React.Component {
     this.onSeekChange = this.onSeekChange.bind(this);
     this.onSeekMouseUp = this.onSeekMouseUp.bind(this);
     this.onProgress = this.onProgress.bind(this);
-    this.displaySongInPlayer = this.displaySongInPlayer.bind(this);
     this.displaySongInfo = this.displaySongInfo.bind(this);
     this.verticalSlider = this.verticalSlider.bind(this);
   }
@@ -32,16 +31,6 @@ export default class App extends React.Component {
     //this.props.track_playing is from the previous props
      if (this.props.track_playing){
       this.setState({playing: true});
-     }
-   }
-
-   displaySongInPlayer(){
-     if (this.props.track_player.title===undefined){
-       return null;
-     }  else {
-       return (
-         `: ${this.props.track_player.title}`
-       );
      }
    }
 
