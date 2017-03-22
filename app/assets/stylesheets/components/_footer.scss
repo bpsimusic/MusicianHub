@@ -1,0 +1,64 @@
+.company {
+  flex: 1;
+}
+
+.community {
+  flex: 1;
+}
+
+footer {
+  margin-top: 60px;
+    height: 270px;
+    width: 100vw;
+    background: black;
+}
+
+
+.footer-flex {
+    font-size: 15px;
+    width: 85%;
+    height: 50%;
+    display: flex;
+    position: relative;
+    margin: auto;
+    top: 40px;
+    left: 50px;
+    color: rgba(219, 214, 219, 1)
+}
+
+.footer-flex li:hover {
+  color: white;
+}
+
+.footer-flex ul {
+  padding-left: 0px;
+}
+
+.logo-footer {
+  flex: 1;
+
+}
+
+.logo-footer a {
+  display: block;
+    width: 120px;
+    height: 120px;
+    background-image: url(/assets/whiteheadphones.png);
+    background-repeat: no-repeat;
+    background-size: 120px;
+    opacity: 0.8;
+    transition: opacity ease;
+}
+
+.logo-footer a:hover {
+  opacity: 1;
+}
+
+
+.footer h4{
+  margin: 0px;
+}
+
+.resources {
+  flex: 1;
+}

@@ -60,7 +60,6 @@ class HomePage extends React.Component {
                 })}
               </ul>
           </div>
-        <footer></footer>
       </div>
     );
   }

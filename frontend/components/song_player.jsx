@@ -124,7 +124,7 @@ export default class App extends React.Component {
 
     const {duration, played} = this.state;
     return (
-      <div className="footer">
+      <div className="song-footer">
         <ReactPlayer url={this.props.track_player.song_url}
           ref={player => { this.player = player; }}
           playing={this.state.playing}
