@@ -33,6 +33,7 @@
     box-sizing: inherit;
     font-size: 22px;
     width: 350px;
+    border-radius: 10px;
 }
 
 .form-container form{
@@ -75,4 +76,8 @@
   height: 100vh;
   background-position: 0;
   background-size: cover;
+}
+
+.ReactModal__Body--open {
+  overflow-y: hidden;
 }
