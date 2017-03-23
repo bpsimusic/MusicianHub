@@ -24,18 +24,21 @@
     position: relative;
     display: inline-block;
     height: 20px;
-    width: 300px;
+    width: 270px;
     font-size: 16px;
     font-family: Roboto;
+
+
 }
 
 .dropdown-content {
     display: block;
     position: absolute;
     left: 0px;
-    top: -26px;
+    top: 0px;
+    bottom: 0px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    width: 306px;
+    width: 276px;
     text-decoration: none;
     z-index: 1;
 }
@@ -57,15 +60,7 @@
 }
 
 
-.filler {
-  position: relative;
-}
 
-.flex-container {
-  position: relative;
-  right: 25px;
-  top: 10px;
-}
 
 .fa-circle:before {
   content: "\f111";
@@ -115,14 +110,8 @@ li.sample-artist:hover div.play-button-image {
 
 .material-icons {
   position: relative;
-  top: 7px;
-  background: lightgrey;
-  padding-top: 1px;
-  padding-left: 1px;
-  padding-right: 1px;
-  height: 26px;
-  box-sizing: border-box;
-  border-radius: 0px 3px 3px 0px;
+    left: 7px;
+    font-size: 26px;
 }
 
 .play-button-image {
@@ -170,6 +159,25 @@ display: block;
   align-items: center;
 }
 
+.searchbar-icon{
+  height: 26px;
+  width: 40px;
+  background:blue;
+  border-radius: 1px;
+border-top-right-radius: 1px;
+border-bottom-right-radius: 1px;
+
+}
+
+.search-items-list {
+    position: absolute;
+    padding: 0px;
+    margin: 0px;
+    top: 26px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
 
 .video-container {
   width: 100%;

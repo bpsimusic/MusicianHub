@@ -31,7 +31,7 @@ class SearchBar extends React.Component {
         dropdown.classList.remove("remove-results");
       }
     });
-    debugger
+
   }
 
   componentWillReceiveProps(){
@@ -79,12 +79,13 @@ class SearchBar extends React.Component {
       return null;
     }
   }
-// <i className="material-icons">search</i>
+
+  //the ul search-items-list is absolute positioned, so it's not in the flex of its parent div searchbar
   render(){
 
     return(
       <div className="searchbar">
-        <label className="flex-container">
+
           <input type="text"
             onChange={this.fetchArtists}
             className="dropdown"
@@ -92,10 +93,13 @@ class SearchBar extends React.Component {
             value={this.state.searchInput}
             />
 
-          <ul className="filler">
+          <div className="searchbar-icon">
+            <i className="material-icons">search</i>
+          </div>
+
+          <ul className="search-items-list">
             {this.displaySearchResults()}
           </ul>
-        </label>
       </div>
     );
   }
