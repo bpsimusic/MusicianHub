@@ -9,6 +9,34 @@ class SearchBar extends React.Component {
     this.fetchArtists = this.fetchArtists.bind(this);
     this.renderResults = this.renderResults.bind(this);
     this.displaySearchResults = this.displaySearchResults.bind(this);
+
+  }
+
+  componentDidMount(){
+    //customizing the searchBar to behave like a normal one
+    document.addEventListener("click", function(e){
+      let element = $(e.target);
+      let dropdown = document.querySelector(".dropdown-content");
+      if (element.hasClass("dropdown")){
+        return ;
+      } else if(element.parents(".dropdown-content").length === 0 ) {
+        dropdown.classList.add("remove-results");
+      }
+    });
+
+    let input = document.querySelector(".dropdown");
+    input.addEventListener("click", function(){
+      let dropdown = document.querySelector(".dropdown-content");
+      if(dropdown){
+        dropdown.classList.remove("remove-results");
+      }
+    });
+    debugger
+  }
+
+  componentWillReceiveProps(){
+    //this clears the input whenever you leave the page
+    this.setState({artists: [], searchInput: ""});
   }
 
   clearForm(artist){
@@ -36,6 +64,7 @@ class SearchBar extends React.Component {
   }
 
   displaySearchResults() {
+    //clearForm clears the searchbar if one of the results is clicked.
     if (this.state.artists.length > 0)
       return (
         <div className="dropdown-content">
@@ -52,6 +81,7 @@ class SearchBar extends React.Component {
   }
 // <i className="material-icons">search</i>
   render(){
+
     return(
       <div className="searchbar">
         <label className="flex-container">
