@@ -60,6 +60,7 @@ class SearchBar extends React.Component {
   }
 
   renderResults(artists) {
+    // debugger
     this.setState({artists: artists});
   }
 
@@ -70,8 +71,11 @@ class SearchBar extends React.Component {
         <div className="dropdown-content">
         {this.state.artists.map((artist, idx)=>{
           return (
-              <Link to={`/artists/${artist.id}`} onClick={this.clearForm(artist)}><li key={idx}>
-                {artist.artist}</li></Link>
+              <Link to={`/artists/${artist.id}`} onClick={this.clearForm(artist)}>
+
+                <li key={idx}>
+                <img src={artist.image_url}></img>
+                <span>{artist.artist}</span></li></Link>
           );
         })}
       </div>);

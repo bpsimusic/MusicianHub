@@ -20,7 +20,7 @@ class Api::ArtistsController < ApplicationController
 
   def search
     if params[:query].present?
-      @artists = Artist.where("lower(name) ~ ?", params[:query].downcase).limit(10)
+      @artists = Artist.where("lower(name) ~ ?", params[:query].downcase).limit(7)
     else
       @artists = Artist.none
     end
