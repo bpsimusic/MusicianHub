@@ -19,7 +19,7 @@ class SearchBar extends React.Component {
       let dropdown = document.querySelector(".dropdown-content");
       if (element.hasClass("dropdown")){
         return ;
-      } else if(element.parents(".dropdown-content").length === 0 ) {
+      } else if(dropdown && element.parents(".dropdown-content").length === 0 ) {
         dropdown.classList.add("remove-results");
       }
     });
