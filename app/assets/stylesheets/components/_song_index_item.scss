@@ -21,7 +21,6 @@
 
 .play-click {
   width: 80px;
-  background: lightblue;
   padding: 5px;
   border-radius: 5px;
   color: white;
@@ -35,7 +34,7 @@
     display: inline-block;
     width: 80px;
     height: 20px;
-    background: lightblue;
+    background: #7fbee6;
     padding: 5px;
     padding-bottom: 2px;
     text-align: center;
@@ -44,6 +43,10 @@
     font-weight: bold;
     font-size: 14px;
     margin-left: 1px;
+}
+
+.download-button:hover {
+  background:#4683ea;
 }
 
 .delete-click {
