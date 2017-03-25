@@ -57,8 +57,9 @@ class SongIndexItem extends React.Component {
             <button onClick={this.dispatchSong(this.props.song, this.props.artist)}
                     className="play-click">Play</button>
           </div>
-          {this.props.edit ? this.deleteButton(this.props.song) : null}
           {this.downloadButton(this.props.song)}
+          {this.props.edit ? this.deleteButton(this.props.song) : null}
+
         <br></br>
         </div>
       </div>

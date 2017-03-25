@@ -82,7 +82,7 @@ class ArtistInfo extends React.Component {
   cancelEditSongs(){
     return (
         <button onClick={this.editSongs.bind(this)}
-                className="edit-songs-cancel">Cancel</button>
+                className="edit-songs-cancel">Finish Editing</button>
     );
   }
 
@@ -194,11 +194,11 @@ class ArtistInfo extends React.Component {
             <header className="songs-header">
               Songs&nbsp;&nbsp;&nbsp;
 
-              {this.editSongsButton()}
+
               &nbsp;
-              {this.state.editSongs ? this.cancelEditSongs() : null}
+              {this.state.editSongs ? this.cancelEditSongs() : this.editSongsButton()}
             </header>
-            <SongIndexContainer />
+            <SongIndexContainer edit={this.state.editSongs}/>
           </div>
           {this.props.children}
         </div>
