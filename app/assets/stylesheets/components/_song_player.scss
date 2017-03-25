@@ -17,9 +17,9 @@
 .download-icon {
   background-image: image-url("downloadicon.png");
   background-repeat: no-repeat;
-  background-size: 40px;
-  height:40px;
-  width:40px;
+  background-size: 30px 30px;
+  height:30px;
+  width:30px;
 }
 
 .download-icon:hover {
@@ -32,7 +32,7 @@
   display: none;
   position: absolute;
   top: -26px;
-  left: -12px;
+  left: -17px;
   background: black;
   color:  white;
   font-size: 12px;
@@ -42,9 +42,11 @@
   padding-right: 5px;
 }
 
+
+
 .download-song-in-player {
-  width: 40px !important;
-  height: 40px !important;
+  width: 30px !important;
+  height: 30px !important;
   position: relative;
   left: 10px;
 }
@@ -169,17 +171,7 @@
   margin-left: 20px;
 }
 
-.triangle {
-  display: none;
-  width: 0;
-  height: 0;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-top: 6px solid black;
-  position: absolute;
-  top: -8px;
-  left: 14px;
-}
+
 
 input[type='range'].input-slider {
     -webkit-appearance: none !important;
@@ -198,6 +190,18 @@ input[type='range'].input-slider::-webkit-slider-thumb {
     height:8px;
     width:8px;
     border-radius: 8px;
+}
+
+.triangle {
+  display: none;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid black;
+  position: absolute;
+  top: -7px;
+  left: 9px;
 }
 
 .volume-slider-container {
