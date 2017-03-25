@@ -23,11 +23,16 @@ class SongIndexItem extends React.Component {
     };
   }
 
+
   downloadButton(song){
     return (
-      <div className="download-button">
-        <a href={`${song.song_url}`} download>Download</a>
-      </div>
+        <a href={`${song.song_url}`} download>
+          <button className="download-button">
+            Download
+          </button>
+        </a>
+
+
     );
   }
 
@@ -53,7 +58,7 @@ class SongIndexItem extends React.Component {
                     className="play-click">Play</button>
           </div>
           {this.props.edit ? this.deleteButton(this.props.song) : null}
-          {this.props.download ? this.downloadButton(this.props.song) : null}
+          {this.downloadButton(this.props.song)}
         <br></br>
         </div>
       </div>

@@ -31,19 +31,16 @@
 }
 
 .download-button {
-    display: inline-block;
-    width: 80px;
-    height: 20px;
-    background: #7fbee6;
-    padding: 5px;
-    padding-bottom: 2px;
-    text-align: center;
+  padding: 5px;
     border-radius: 5px;
     color: white;
     font-weight: bold;
     font-size: 14px;
-    margin-left: 1px;
-}
+    position: relative;
+    top: 1px;
+    width: 110px;
+        left: 5px;
+  }
 
 .download-button:hover {
   background:#4683ea;

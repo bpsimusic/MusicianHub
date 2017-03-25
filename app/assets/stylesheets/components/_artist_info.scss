@@ -85,6 +85,8 @@ img {
 }
 
 .songindex {
+  height: 800px;
+  overflow: scroll;
   padding: 0px;
   border: solid black 2px;
   width: inherit;
