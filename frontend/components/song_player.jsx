@@ -18,6 +18,8 @@ export default class App extends React.Component {
     this.playPause = this.playPause.bind(this);
     this.stop = this.stop.bind(this);
     this.setVolume = this.setVolume.bind(this);
+    this.displayDownloadMessage = this.displayDownloadMessage.bind(this);
+    this.removeDownloadMessage = this.removeDownloadMessage.bind(this);
     this.onSeekMouseDown = this.onSeekMouseDown.bind(this);
     this.onSeekChange = this.onSeekChange.bind(this);
     this.onSeekMouseUp = this.onSeekMouseUp.bind(this);
@@ -34,7 +36,15 @@ export default class App extends React.Component {
      }
    }
 
+   displayDownloadMessage(){
+     let downloadMessage = document.querySelector(".download-message");
+     downloadMessage.style.display="block";
+     let triangle = document.querySelector(".triangle");
+     triangle.style.display="block";
+   }
+
    displaySongInfo(){
+
      if(this.props.track_player_artist.image_url == undefined){
          let randomNumber = Math.floor(Math.random() * 20 + 2);
          this.props.requestSampleSong(randomNumber);
@@ -53,6 +63,17 @@ export default class App extends React.Component {
                         <div>{this.props.track_player.title}</div>
                       </div>
                   </Link>
+
+                    <a href={`${this.props.track_player.song_url}`} download
+                      className={"download-song-in-player"}
+                      onMouseEnter={this.displayDownloadMessage}
+                      onMouseOut={this.removeDownloadMessage}>
+
+                      <div className={"download-icon"}></div>
+                      <div className={"download-message"}>Download</div>
+                      <div className={"triangle"}></div>
+                    </a>
+
               </section>
         );
       }
@@ -96,9 +117,12 @@ export default class App extends React.Component {
     );
   }
 
-
-
-
+  removeDownloadMessage(){
+    let downloadMessage = document.querySelector(".download-message");
+    downloadMessage.style.display="none";
+    let triangle = document.querySelector(".triangle");
+    triangle.style.display="none";
+  }
 
   verticalSlider(){
     let sliderContainer = document.querySelector(".volume-slider-container")

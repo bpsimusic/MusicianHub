@@ -91,7 +91,7 @@ class ArtistInfo extends React.Component {
   }
 
   editProfile(){
-    if (this.props.currentUser.id === this.props.artist.id){
+    if (this.props.currentUser.id && this.props.currentUser.id === this.props.artist.id){
       return (
       <button className="edit"
         onClick={this.activateEdit}>Edit Profile</button>
@@ -102,7 +102,7 @@ class ArtistInfo extends React.Component {
   }
 
   editSongsButton(){
-    if (this.props.currentUser.id === this.props.artist.id){
+    if (this.props.currentUser.id && this.props.currentUser.id === this.props.artist.id){
       return (
       <button onClick={this.editSongs.bind(this)}
               className="edit-songs-button">Edit Songs</button>
@@ -166,47 +166,48 @@ class ArtistInfo extends React.Component {
 
   render(){
     return (
-        <div className="artist-info group">
-          <div className="artist-header">
-            {this.artistHeader()}
-            {this.state.edit ? null: this.editProfile()}
-            {this.state.edit ? this.cancel() : null}
-          </div>
-          <div className="invisible">
-            {this.state.edit ? this.artistNameEdit() : null}
-          </div>
-          <div className="left-hand-container">
+      <div className="artist-info group">
+        <div className="artist-header">
+          {this.artistHeader()}
+          {this.state.edit ? null: this.editProfile()}
+          {this.state.edit ? this.cancel() : null}
+        </div>
+        <div className="invisible">
+          {this.state.edit ? this.artistNameEdit() : null}
+        </div>
+        <div className="left-hand-container">
 
-              {this.state.edit ? this.imageEdit() : this.image()}
+            {this.state.edit ? this.imageEdit() : this.image()}
 
+          <br></br>
+          <br></br>
+          <div className="bio">Bio
             <br></br>
             <br></br>
-            <div className="bio">Bio
-              <br></br>
-              <br></br>
-              {this.state.edit ? this.bioEdit() : this.bio()}
-            </div>
-          </div>
-
-          <div className="right-hand-container">
-
-            <div className="songindex">
-              <header className="songs-header">
-                Songs&nbsp;&nbsp;&nbsp;
-
-                {this.editSongsButton()}
-                &nbsp;
-                {this.state.editSongs ? this.cancelEditSongs() : null}
-              </header>
-              <SongIndexContainer />
-            </div>
-            {this.props.children}
+            {this.state.edit ? this.bioEdit() : this.bio()}
           </div>
         </div>
+
+        <div className="right-hand-container">
+
+          <div className="songindex">
+            <header className="songs-header">
+              Songs&nbsp;&nbsp;&nbsp;
+
+              {this.editSongsButton()}
+              &nbsp;
+              {this.state.editSongs ? this.cancelEditSongs() : null}
+            </header>
+            <SongIndexContainer />
+          </div>
+          {this.props.children}
+        </div>
+      </div>
 
     );
   }
 }
+
 
 
 export default ArtistInfo;

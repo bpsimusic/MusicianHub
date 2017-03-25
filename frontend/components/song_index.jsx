@@ -48,7 +48,7 @@ class SongIndex extends React.Component {
   }
 
   uploadNewSongButton(){
-    if (this.props.currentUser.id === this.props.artist.id){
+    if (this.props.currentUser.id && this.props.currentUser.id === this.props.artist.id){
       return (
       <button onClick={this.handleClick(`/artists/${this.props.currentUser.id}/newsong`).bind(this)}>Upload New Song</button>
       );
