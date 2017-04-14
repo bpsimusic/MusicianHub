@@ -3,9 +3,8 @@ class Api::ArtistsController < ApplicationController
   end
 
   def index
-
-    @artists = Artist.order("RANDOM()").limit(12)
-    render "api/artists/sample"
+    @artists = Artist.all
+    render "api/artists/index"
   end
 
   def create
@@ -16,6 +15,11 @@ class Api::ArtistsController < ApplicationController
     else
       render json: @artist.errors.full_messages, status: 422
     end
+  end
+
+  def sample
+    @artists = Artist.order("RANDOM()").limit(12)
+    render "api/artists/sample"
   end
 
   def search

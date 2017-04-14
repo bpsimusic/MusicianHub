@@ -2,7 +2,7 @@ import React from 'react';
 import UploadButton from './upload_button';
 import SongIndex from './song_index';
 import SongIndexContainer from './song_index_container';
-
+import {Link} from 'react-router';
 
 class ArtistInfo extends React.Component {
   constructor(props){
@@ -166,44 +166,47 @@ class ArtistInfo extends React.Component {
 
   render(){
     return (
-      <div className="artist-info group">
-        <div className="artist-header">
-          {this.artistHeader()}
-          {this.state.edit ? null: this.editProfile()}
-          {this.state.edit ? this.cancel() : null}
-        </div>
-        <div className="invisible">
-          {this.state.edit ? this.artistNameEdit() : null}
-        </div>
-        <div className="left-hand-container">
+      <div>
+        <Link to="/index" className="link-back-to-index">←Back To Index</Link>
+        <div className="artist-info group">
 
-            {this.state.edit ? this.imageEdit() : this.image()}
+          <div className="artist-header">
+            {this.artistHeader()}
+            {this.state.edit ? null: this.editProfile()}
+            {this.state.edit ? this.cancel() : null}
+          </div>
+          <div className="invisible">
+            {this.state.edit ? this.artistNameEdit() : null}
+          </div>
+          <div className="left-hand-container">
 
-          <br></br>
-          <br></br>
-          <div className="bio">Bio
+              {this.state.edit ? this.imageEdit() : this.image()}
+
             <br></br>
             <br></br>
-            {this.state.edit ? this.bioEdit() : this.bio()}
+            <div className="bio">Bio
+              <br></br>
+              <br></br>
+              {this.state.edit ? this.bioEdit() : this.bio()}
+            </div>
           </div>
-        </div>
 
-        <div className="right-hand-container">
+          <div className="right-hand-container">
 
-          <div className="songindex">
-            <header className="songs-header">
-              Songs&nbsp;&nbsp;&nbsp;
+            <div className="songindex">
+              <header className="songs-header">
+                Songs&nbsp;&nbsp;&nbsp;
 
 
-              &nbsp;
-              {this.state.editSongs ? this.cancelEditSongs() : this.editSongsButton()}
-            </header>
-            <SongIndexContainer edit={this.state.editSongs}/>
+                &nbsp;
+                {this.state.editSongs ? this.cancelEditSongs() : this.editSongsButton()}
+              </header>
+              <SongIndexContainer edit={this.state.editSongs}/>
+            </div>
+            {this.props.children}
           </div>
-          {this.props.children}
         </div>
       </div>
-
     );
   }
 }

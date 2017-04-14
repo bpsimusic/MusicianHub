@@ -12,7 +12,7 @@ const App = ({children}) => (
       <div className="footer-flex">
         <div className="logo-footer">
           <a href="#"></a>
-          
+
         </div>
         <div className="company">
           <h4>Company</h4>
@@ -35,7 +35,7 @@ const App = ({children}) => (
         <div className="community">
           <h4>Community</h4>
             <ul>
-              <Link to="/"><li>Artists</li></Link>
+              <Link to="/index"><li>Artists</li></Link>
               <Link to="/"><li>Events</li></Link>
               <Link to="/"><li>Groups</li></Link>
             </ul>

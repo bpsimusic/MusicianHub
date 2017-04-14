@@ -82,6 +82,22 @@ img {
   padding: 20px;
 }
 
+.link-back-to-index {
+  font-size:18px;
+  position: relative;
+  left: 12px;
+  top: 10px;
+}
+
+.link-back-to-index:hover {
+  color: #002bb8;
+  text-decoration:underline;
+
+}
+.link-back-to-index:visited {
+  color: #5a3696;;
+}
+
 .name-submit {
   height: 25px;
   margin-left: 2px;

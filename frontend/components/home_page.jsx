@@ -1,7 +1,7 @@
 import React from 'react';
 import SampleListItem from './sample_list_item';
 import Router from './sample_list_item';
-
+import {Link} from 'react-router';
 
 class HomePage extends React.Component {
   constructor(props){
@@ -40,7 +40,7 @@ class HomePage extends React.Component {
             <h3>Share your music with your fans</h3>
             <h3>Find music you love</h3>
           </div>
-
+          <Link to={"/index"}><button className={"button-to-index"}>Start Exploring</button></Link>
           <video src="https://s3-us-west-1.amazonaws.com/musicianhub/musicianhubvid.mp4"
             autoPlay
             loop
