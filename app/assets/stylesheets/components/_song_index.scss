@@ -6,7 +6,7 @@
 }
 
 .songs-header {
-  width: 80%;
+  width: 90%;
   font-size: 30px;
   position: relative;
   margin-top: 10px;
@@ -17,11 +17,16 @@
 .edit-songs-button {
   position: relative;
   bottom: 5px;
-  right: 25px;
+  left: 5px;
 }
 
 .edit-songs-cancel {
   position: relative;
   bottom: 5px;
-  right: 25px;
+  left: 5px;
+}
+
+.upload-new-song-button {
+  position: relative;
+  bottom: 5px;
 }

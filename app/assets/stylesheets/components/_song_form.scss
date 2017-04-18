@@ -1,12 +1,60 @@
+.accepted-formats {
+  color:grey;
+  margin-top: 5px;
+  text-align: right;
+}
+
+.add-songs-header {
+  display: inline-block;
+}
+
+.label.label-multiple {
+  display: block !important;
+}
+
+.my-upload {
+  margin-top: 15px;
+  width: 470px;
+  height: 250px;
+}
+
+.my-upload iframe {
+  height: 250px !important;
+  margin-top: 15px;
+}
 .song-form {
   margin-top: 10px;
-  border: solid black 2px;
   padding: 15px;
 }
 
-.submit-song{
+.song-form h1 {
+  font-size: 30px;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.song-form button {
   margin-top: 4px;
  padding: 5px;
+ background: #037FCB;
+}
+
+.song-form-errors {
+  position: relative;
+  left: 15px;
+  bottom: 30px;
+}
+
+.successful-upload {
+  width: 470px;
+  height: 250px;
+  border: 1px solid #ddd;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #037FCB;
+  font-size: 25px;
 }
 
 .upload-song-file{

@@ -47,22 +47,6 @@ class SongIndex extends React.Component {
     };
   }
 
-  uploadNewSongButton(){
-    if (this.props.currentUser.id && this.props.currentUser.id === this.props.artist.id){
-      return (
-      <button onClick={this.handleClick(`/artists/${this.props.currentUser.id}/newsong`).bind(this)}>Upload New Song</button>
-      );
-    } else {
-      return null;
-    }
-  }
-  uploadSong(url){
-    const song_url = url;
-    const song = {song: {song_url, artist_id: this.props.currentUser.id}, artist_id: this.props.currentUser.id};
-    this.props.newSong(song);
-  }
-
-
   render(){
     let that = this;
     return (
@@ -70,7 +54,7 @@ class SongIndex extends React.Component {
         <ul>
             {this.artistSongsOrCurrentUserSongs()}
         </ul>
-        {this.uploadNewSongButton()}
+
       </div>
     );
   }

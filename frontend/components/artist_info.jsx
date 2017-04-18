@@ -23,6 +23,17 @@ class ArtistInfo extends React.Component {
     }
   }
 
+  addNewSongButton(){
+    if (this.props.currentUser.id && this.props.currentUser.id === this.props.artist.id){
+      return (
+        <button onClick={this.handleClick(`/artists/${this.props.currentUser.id}/newsong`).bind(this)}
+          className={"upload-new-song-button"}>Upload New Song</button>
+      );
+    } else {
+      return null;
+    }
+  }
+
   artistHeader(){
     return (
       <h1>{(this.props.currentUser.id === this.props.artist.id) ?
@@ -120,6 +131,12 @@ class ArtistInfo extends React.Component {
     }
   }
 
+  handleClick(url){
+    return function(e){
+      this.props.router.push(url);
+    };
+  }
+
   handleSubmitBio(e){
     e.preventDefault();
     const bio = this.state.bio;
@@ -195,10 +212,8 @@ class ArtistInfo extends React.Component {
 
             <div className="songindex">
               <header className="songs-header">
-                Songs&nbsp;&nbsp;&nbsp;
-
-
-                &nbsp;
+                Songs&nbsp;&nbsp;
+                {this.props.currentUser ? this.addNewSongButton() : null}
                 {this.state.editSongs ? this.cancelEditSongs() : this.editSongsButton()}
               </header>
               <SongIndexContainer edit={this.state.editSongs}/>
