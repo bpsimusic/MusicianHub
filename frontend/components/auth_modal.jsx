@@ -34,7 +34,7 @@ class AuthModal extends React.Component {
   }
 
   processForm(){
-    if(this.state.formType === "Log In"){
+    if(this.state.formType === "Login"){
       return this.login;
     } else {
       return this.signup;
@@ -65,10 +65,10 @@ class AuthModal extends React.Component {
 
   swapForm() {
     this.props.clearErrors();
-  		if (this.state.formType === "Log In") {
+  		if (this.state.formType === "Login") {
         this.setState({formType: 'Sign Up'});
   		} else {
-  			this.setState({formType: 'Log In'});
+  			this.setState({formType: 'Login'});
       }
   }
 
@@ -81,8 +81,8 @@ class AuthModal extends React.Component {
   }
 
   render(){
-    const introText = this.state.formType  === 'Log In' ? 'Don\'t have an account?' : 'Already have an account?';
-    const otherFormType = this.state.formType === 'Log In' ? 'Create an account' : 'Login';
+    const introText = this.state.formType  === 'Login' ? 'Don\'t have an account?' : 'Already have an account?';
+    const otherFormType = this.state.formType === 'Login' ? 'Create an account' : 'Login';
 
     return (
       <div className="form-container">
