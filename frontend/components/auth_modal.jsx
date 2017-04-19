@@ -86,7 +86,7 @@ class AuthModal extends React.Component {
 
     return (
       <div className="form-container">
-        <h1>{this.state.formType === "Log In" ? "Login" : "Sign Up"}</h1>
+        <h1>{this.state.formType === "Login" ? "Login" : "Sign Up"}</h1>
         <form onSubmit={this.processForm()}>
 
           <label>Username
