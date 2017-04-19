@@ -18,6 +18,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     clearErrors: ()=>dispatch({type: CLEAR_ERRORS}),
     processForm: (artist)=>dispatch(processForm(artist)),
+    login: (artist)=>dispatch(login(artist)),
+    signup: (artist)=>dispatch(signup(artist)),
     demologin: (user)=>dispatch(demologin(user)),
     logout: ()=>dispatch(logout()),
     formType

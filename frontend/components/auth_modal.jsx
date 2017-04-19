@@ -27,7 +27,7 @@ class AuthModal extends React.Component {
   login(e){
     e.preventDefault();
     const artist = {username: this.state.username, password: this.state.password};
-    this.props.processForm({artist})
+    this.props.login({artist})
     .then((user) => {
         this.props.router.push(`/artists/${user.currentUser.id}`);
       });
@@ -57,7 +57,7 @@ class AuthModal extends React.Component {
   signup(e){
     e.preventDefault();
     const artist = {username: this.state.username, password: this.state.password};
-    this.props.processForm({artist})
+    this.props.signup({artist})
     .then((user) => {
         this.props.router.push(`/artists/${user.currentUser.id}`);
       });
