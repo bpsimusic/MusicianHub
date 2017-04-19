@@ -11,7 +11,11 @@ class Greeting extends React.Component {
     this.state = {modalIsOpen: false, formType: "", username: "", password: ""};
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.displayUploadMessage = this.displayUploadMessage.bind(this);
+    this.removeUploadMessage = this.removeUploadMessage.bind(this);
+    this.signInMessage = this.signInMessage.bind(this);
   }
+
 
   componentWillMount(){
     Modal.setAppElement('body');
@@ -28,11 +32,36 @@ class Greeting extends React.Component {
     this.setState({modalIsOpen: false});
   }
 
+  displayUploadMessage(){
+    let uploadMessage = document.querySelector(".upload-message");
+    uploadMessage.style.display="inline-block";
+    let triangle = document.querySelector(".upload-triangle");
+    triangle.style.display="inline-block";
+  }
+
+
   openModal(){
     return (event)=>{
       event.preventDefault();
       this.setState({modalIsOpen: true, formType: event.currentTarget.innerText});
     };
+  }
+
+  removeUploadMessage(){
+    let uploadMessage = document.querySelector(".upload-message");
+    uploadMessage.style.display="none";
+    let triangle = document.querySelector(".upload-triangle");
+    triangle.style.display="none";
+  }
+
+  signInMessage(){
+    if (!document.querySelector("sign-in-message")) {
+      let signInMessage = document.createElement("div");
+      signInMessage.className = "sign-in-message";
+      signInMessage.innerText = "Please Login";
+      document.querySelector("body").appendChild(signInMessage);
+    }
+    $(".sign-in-message").delay(800).fadeOut(2000);
   }
 
   render(){
@@ -52,6 +81,13 @@ class Greeting extends React.Component {
 
               <nav className="nav-container">
                 <ul className="list-container">
+                  <li><Link to={`/artists/${this.props.currentUser.id}/newsong`}>
+                    <div className="upload-icon"
+                      onMouseEnter={this.displayUploadMessage}
+                      onMouseOut={this.removeUploadMessage}></div>
+                    <div className="upload-message">Upload</div>
+                    <div className="upload-triangle"></div>
+                  </Link></li>
                   <li><Link to={`/artists/${this.props.currentUser.id}`}>Profile</Link></li>
                   <li><Link to="/" onClick={this.props.logout}>Logout</Link></li>
                 </ul>
@@ -75,8 +111,16 @@ class Greeting extends React.Component {
                 </div>
                 <nav className="nav-container">
                   <ul className="list-container">
+                    <li>
+                      <div className="upload-icon"
+                        onClick={this.signInMessage}
+                        onMouseEnter={this.displayUploadMessage}
+                        onMouseOut={this.removeUploadMessage}></div>
+                      <div className="upload-message">Upload</div>
+                      <div className="upload-triangle"></div>
+                    </li>
                     <li><a onClick={this.openModal()}>Sign Up</a></li>
-                    <li><a onClick={this.openModal()}>Log In</a></li>
+                    <li><a onClick={this.openModal()}>Login</a></li>
                       <Modal
                           isOpen={this.state.modalIsOpen}
                           style={styling}
