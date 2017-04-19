@@ -126,7 +126,6 @@ class Greeting extends React.Component {
                           style={styling}
                           onRequestClose={this.closeModal}
                           contentLabel="Example Modal"
-
                           >
                           <AuthModalContainer formType={this.state.formType}/>
                       </Modal>
