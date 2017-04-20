@@ -9,9 +9,18 @@ class Api::SongsController < ApplicationController
   end
 
   def update
+
     @song = Song.find(params[:id])
-    @song.update_attributes(song_params)
-    render "api/songs/show"
+    if params[:song][:title].empty?
+      badSong = Song.new(title: params[:song][:title], song_url: 'abc', artist_id: 999)
+      badSong.save
+      render json: badSong.errors.full_messages, status: 422
+    elsif params[:song][:song_url].empty? && params[:song][:title]
+      @song.update(title: params[:song][:title])
+      render "api/songs/show"
+    elsif @song.update_attributes(song_params)
+      render "api/songs/show"
+    end
   end
 
   def destroy

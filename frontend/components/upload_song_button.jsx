@@ -9,7 +9,6 @@ class UploadSongButton extends React.Component {
   }
 
   componentDidMount() {
-
     let upload = cloudinary.createUploadWidget(
       {cloud_name: "dndf8vddw", upload_preset: "sm4hesi5",
         stylesheet: styling, inline_container: ".my-upload",

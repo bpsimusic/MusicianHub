@@ -4,6 +4,8 @@ export const LOGOUT = "LOGOUT";
 export const SIGNUP = "SIGNUP";
 export const UPDATE = "UPDATE";
 export const NEW_SONG = "NEW_SONG";
+export const EDIT_SONG = "EDIT_SONG";
+export const RECEIVE_EDIT_SONG = "RECEIVE_EDIT_SONG";
 export const DELETE_SONG = "DELETE_SONG";
 export const RECEIVE_DELETE_SONG = "RECEIVE_DELETE_SONG";
 export const RECEIVE_CURRENT_USER = "RECEIVECURRENTUSER";
@@ -30,6 +32,18 @@ export const demologin = (user) => dispatch => {
   return APIUtil.login(user)
     .then(artist => dispatch(receiveCurrentUser(artist)));
 };
+
+
+export const editSong = (song) => dispatch => {
+  return APIUtil.editSong(song)
+    .then(editedSong => dispatch(receiveEditSong(editedSong)),
+      err => dispatch(receiveSongErrors(err.responseJSON)));
+};
+
+export const receiveEditSong = (song) => ({
+  type: RECEIVE_EDIT_SONG,
+  song
+});
 
 
 export const logout = () => ({
@@ -62,6 +76,8 @@ export const createNewSong = (song) => ({
   type: NEW_SONG,
   song
 })
+
+
 
 export const receiveSongErrors = (errors) => ({
   type: RECEIVE_SONG_ERRORS,

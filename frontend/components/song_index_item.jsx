@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactAudioPlayer from 'react-audio-player';
-
+import {withRouter} from 'react-router';
 
 class SongIndexItem extends React.Component {
   constructor(props){
     super(props);
     this.dispatchSong = this.dispatchSong.bind(this);
+    this.editButton = this.editButton.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   deleteButton(song){
@@ -19,7 +21,7 @@ class SongIndexItem extends React.Component {
   deletingSong(song){
     let that = this;
     return function(e){
-      that.props.deleteSong(song)
+      that.props.deleteSong(song);
     };
   }
 
@@ -43,6 +45,21 @@ class SongIndexItem extends React.Component {
     };
   }
 
+  editButton(song){
+    return (
+      <button className = "edit-song-form"
+        onClick={this.handleClick(`/artists/${this.props.currentUser.id}/songs/${song.id}`)}>
+        Edit
+      </button>
+    );
+  }
+
+  handleClick(url){
+    let that = this;
+    return function(e){
+      that.props.router.push(url);
+    };
+  }
 
 
   render(){
@@ -58,6 +75,7 @@ class SongIndexItem extends React.Component {
                     className="play-click">Play</button>
           </div>
           {this.downloadButton(this.props.song)}
+          {this.props.edit ? this.editButton(this.props.song) : null}
           {this.props.edit ? this.deleteButton(this.props.song) : null}
 
         <br></br>
@@ -66,4 +84,4 @@ class SongIndexItem extends React.Component {
     );
   }
 }
-export default SongIndexItem;
+export default withRouter(SongIndexItem);

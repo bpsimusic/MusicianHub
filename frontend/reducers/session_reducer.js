@@ -27,8 +27,15 @@ export const SessionReducer = (state = _default, action)=>{
       return d;
     case Actions.RECEIVE_NEW_SONG:
       let e = merge({}, state);
-      e.currentUser.songs.push(action.song);
+      e.currentUser.songs.unshift(action.song);
       return e;
+    case Actions.RECEIVE_EDIT_SONG:
+      let g = merge({}, state);
+      let oldSong = g.currentUser.songs.find(el=>el.id == action.song.id);
+      let oldIndex = g.currentUser.songs.indexOf(oldSong);
+      g.currentUser.songs.splice(oldIndex, 1);
+      g.currentUser.songs.splice(oldIndex, 0, action.song);
+      return g;
     case Actions.RECEIVE_SONG_ERRORS:
       newState.errors = action.errors;
       return merge({}, state, newState);

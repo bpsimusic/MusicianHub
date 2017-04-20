@@ -18,6 +18,7 @@ class SongIndex extends React.Component {
         this.props.currentUser.songs.map(function(el, idx){
           return <SongIndexItem song={el}
             key={idx}
+            currentUser={that.props.currentUser}
             edit={that.props.edit}
             deleteSong={that.props.deleteSong}
             addSong = {that.props.addSongToQueue}

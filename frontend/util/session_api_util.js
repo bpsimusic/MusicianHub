@@ -21,10 +21,22 @@ export const newSong = (song, success, error) => {
 });
 };
 
+
+
 export const deleteSong = (song, success, error) => {
   $.ajax({url: `/api/artists/${song.artist_id}/songs/${song.id}`,
   type: "delete",
   dataType: 'json',
+  success,
+  error
+});
+};
+
+
+export const editSong = (song, success, error) => {
+  return $.ajax({url: `/api/artists/${song.artist_id}/songs/${song.song.id}`,
+  type: "patch",
+  data: song,
   success,
   error
 });

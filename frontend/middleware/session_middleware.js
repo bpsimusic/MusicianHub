@@ -1,7 +1,7 @@
-import {LOGIN, LOGOUT, SIGNUP, UPDATE, NEW_SONG, DELETE_SONG} from "../actions/session_actions";
-import {signup, update, login, logout, newSong, deleteSong} from "../util/session_api_util";
+import {LOGIN, LOGOUT, SIGNUP, UPDATE, NEW_SONG, EDIT_SONG, DELETE_SONG} from "../actions/session_actions";
+import {signup, update, login, logout, newSong, editSong,deleteSong} from "../util/session_api_util";
 import {RECEIVE_ERRORS, RECEIVE_CURRENT_USER, receiveCurrentUser, receiveErrors, logoutUser,
-        receiveNewSong, receiveSongErrors, receiveDelete, receiveDeleteErrors} from "../actions/session_actions";
+        receiveNewSong, receiveSongErrors, receiveDelete, receiveDeleteErrors, receiveEditSong} from "../actions/session_actions";
 
 //middleware gets a store object
 const SessionMiddleware = ({getState, dispatch}) => next => action => {
@@ -10,6 +10,8 @@ const SessionMiddleware = ({getState, dispatch}) => next => action => {
   const successLogout = () => dispatch(logoutUser());
   const successCreateSong = song => {dispatch(receiveNewSong(song))}
   const errorSongCallback = errors => {dispatch(receiveSongErrors(errors.responseJSON))}
+  const successEditSong = (song) => {dispatch(receiveEditSong(song))}
+  const errorEditCallback = errors => {dispatch(receiveSongErrors(errors.responseJSON))}
   const successDelete = (song) => dispatch(receiveDelete(song))
   switch(action.type) {
     case LOGIN:
@@ -27,6 +29,9 @@ const SessionMiddleware = ({getState, dispatch}) => next => action => {
     case NEW_SONG:
       newSong(action.song, successCreateSong, errorSongCallback);
       return next(action);
+    // case EDIT_SONG:
+    //   editSong(action.song, successEditSong, errorEditCallback);
+    //   return next(action);
     case DELETE_SONG:
       deleteSong(action.song, successDelete);
       return next(action);

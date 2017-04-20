@@ -6,6 +6,7 @@ import GreetingContainer from './greeting_container';
 import ArtistInfoContainer from './artist_info_container';
 import SongIndexContainer from './song_index_container';
 import SongFormContainer from './song_form_container';
+import EditSongFormContainer from './edit_song_form_container';
 import HomePageContainer from './home_page_container';
 import IndexContainer from './index_container';
 import * as SessionActions from "../actions/session_actions";
@@ -40,6 +41,7 @@ const Root = ({store}) => {
         <IndexRoute component={HomePageContainer}/>
         <Route path="artists/:artistId" component={ArtistInfoContainer} onEnter={_fetchArtist} onLeave={_clearArtist}>
           <Route path="newsong" component={SongFormContainer} />
+          <Route path="songs/:id" component={EditSongFormContainer} />
         </Route>
         <Route path="index" component={IndexContainer} onEnter={_fetchAllArtists}>
         </Route>
